@@ -28,46 +28,46 @@ namespace NEW_COBRA
         {
             string S = (sender as Button).Content.ToString();
 
-            /*   switch (S)
-               {
-                   case "FACTURE":
+            switch (S)
+            {
+                case "FACTURE":
 
-                       {
-                           Console.WriteLine(S);
+                    {
+                        Console.WriteLine(S);
 
-                           Home.Content = new FACTURE();
-                       }
-                       break;
-                   case "BONS":
-                       {
-                           Console.WriteLine(S);
+                        Home.Content = new FACTURE();
+                    }
+                    break;
+                case "BONS":
+                    {
+                        Console.WriteLine(S);
 
-                           Home.Content = new BONS();
-                       }
-                       break;
-                   case "CLIENT":
-                       {
-                           Console.WriteLine(S);
+                        Home.Content = new BONS();
+                    }
+                    break;
+                case "CLIENT":
+                    {
+                        Console.WriteLine(S);
 
-                           Home.Content = new CLIENT();
-                       }
-                       break;
-                   case "PANNE":
-                       {
-                           Console.WriteLine(S);
+                        Home.Content = new CLIENT();
+                    }
+                    break;
+                case "PANNE":
+                    {
+                        Console.WriteLine(S);
 
-                           Home.Content = new PANNE();
-                       }
-                       break;
-                   case "STOCK":
-                       {
-                           Console.WriteLine(S);
+                        Home.Content = new PANNE();
+                    }
+                    break;
+                case "STOCK":
+                    {
+                        Console.WriteLine(S);
 
-                           Home.Content = new STOCK();
-                       }
-                       break;
-               };
-            */
+                        Home.Content = new STOCK();
+                    }
+                    break;
+            };
+
         }
 
     }

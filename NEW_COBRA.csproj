@@ -55,6 +55,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CobraPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\BONS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\CLIENT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\FACTURE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\PANNE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\STOCK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +86,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CobraPage.xaml.cs">
+      <DependentUpon>CobraPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\BONS.xaml.cs">
+      <DependentUpon>BONS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\CLIENT.xaml.cs">
+      <DependentUpon>CLIENT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\FACTURE.xaml.cs">
+      <DependentUpon>FACTURE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\PANNE.xaml.cs">
+      <DependentUpon>PANNE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\STOCK.xaml.cs">
+      <DependentUpon>STOCK.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -94,5 +136,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

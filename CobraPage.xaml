@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="NEW_COBRA.CobraPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NEW_COBRA"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Name="PageControl">
+    <Grid>
+        <Grid x:Name="headPage" Margin="0,2,0,363.6">
+            <ContentControl  Content="{Binding Page,ElementName=PageControl}"></ContentControl>
+        </Grid>
+        <Grid x:Name="bodyPage" Margin="0,86,0,-0.4">
+
+        </Grid>
+    </Grid>
+</UserControl>
