@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NEW_COBRA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="650" Width="1000">
+    <Grid Margin="0,0,-0.4,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="57*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Label Content="COBRA" HorizontalAlignment="Left" Margin="44,26,0,0" VerticalAlignment="Top" Width="96" Height="54" Background="#FFFCF7F7" FontSize="24" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="460" Margin="10,25.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="176">
+            <Grid Margin="0.2,4.2,0.2,-3.8"/>
+
+
+
+        </Border>
+        <Grid HorizontalAlignment="Left" Height="460" Margin="10,25.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="176">
+            <Button Content="FACTURE" Click ="Call" HorizontalAlignment="Left" Margin="52,39,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.205,-0.624"/>
+            <Button Content="BONS" Click ="Call" HorizontalAlignment="Left" Margin="52,79,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="CLIENT" Click ="Call" HorizontalAlignment="Left" Margin="52,121,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="PANNE" Click ="Call" HorizontalAlignment="Left" Margin="52,167,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="STOCK" Click ="Call" HorizontalAlignment="Left" Margin="52,209,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.011,-0.415"/>
+
+
+
+        </Grid>
+
+        <Frame x:Name="Home"  Grid.Column="1" Margin="27,10,28.6,28" Grid.RowSpan="2" NavigationUIVisibility="Hidden">
+
+
+
+        </Frame>
+
     </Grid>
 </Window>
