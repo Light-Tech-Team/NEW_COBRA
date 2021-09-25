@@ -10,11 +10,14 @@
 
     <Grid>
         <local:CobraPage Grid.Column="1" Margin="37,26,47.6,28" Grid.RowSpan="2" >
-            <local:CobraPage.Page>
+            <local:CobraPage.HeadPage>
                 <Label Content="BONS">
                 </Label>
-
-            </local:CobraPage.Page>
-            </local:CobraPage>
+            </local:CobraPage.HeadPage>
+            <local:CobraPage.BodyPage>
+                <Label Content="BodyBONS">
+                </Label>
+            </local:CobraPage.BodyPage>
+        </local:CobraPage>
     </Grid>
 </Page>

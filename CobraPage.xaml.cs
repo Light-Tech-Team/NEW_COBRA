@@ -21,17 +21,29 @@ namespace NEW_COBRA
     public partial class CobraPage : UserControl
     {
 
-        public object Page
+        public object HeadPage
         {
-            get { return (object)GetValue(PageProperty); }
-            set { SetValue(PageProperty, value); }
+            get { return (object)GetValue(HeadPageProperty); }
+            set { SetValue(HeadPageProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Page.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty HeadPageProperty =
+            DependencyProperty.Register("HeadPage", typeof(object), typeof(CobraPage), new PropertyMetadata(0));
+
+        public object BodyPage
+        {
+            get { return (object)GetValue(BodyPageProperty); }
+            set { SetValue(BodyPageProperty, value); }
         }
 
 
 
         // Using a DependencyProperty as the backing store for Page.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PageProperty =
-            DependencyProperty.Register("Page", typeof(object), typeof(CobraPage), new PropertyMetadata(0));
+        public static readonly DependencyProperty BodyPageProperty =
+            DependencyProperty.Register("BodyPage", typeof(object), typeof(CobraPage), new PropertyMetadata(0));
+
+
         public CobraPage()
         {
             InitializeComponent();

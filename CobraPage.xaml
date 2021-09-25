@@ -5,14 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NEW_COBRA"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="612" d:DesignWidth="800"
              Name="PageControl">
-    <Grid>
-        <Grid x:Name="headPage" Margin="0,2,0,363.6">
-            <ContentControl  Content="{Binding Page,ElementName=PageControl}"></ContentControl>
-        </Grid>
-        <Grid x:Name="bodyPage" Margin="0,86,0,-0.4">
 
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="538*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,2" Grid.Row="0">
+            <Grid x:Name="headPage"  >
+                <ContentControl  Content="{Binding HeadPage,ElementName=PageControl}" Margin="0,0,0,0.2"></ContentControl>
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,-0.4" Grid.Row="1">
+        <Grid x:Name="bodyPage" >
+            <ContentControl  Content="{Binding BodyPage,ElementName=PageControl}"></ContentControl>
         </Grid>
+        </Border>
     </Grid>
 </UserControl>

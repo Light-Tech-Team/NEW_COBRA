@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEW_COBRA.DATA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace NEW_COBRA
     {
         public MainWindow()
         {
+            OpenData openData = new OpenData();
+            openData.OpenWorkbook();
             InitializeComponent();
         }
         private void Call(object sender, RoutedEventArgs e)
