@@ -22,6 +22,7 @@ namespace NEW_COBRA
     {
         public FACTURE()
         {
+           //FactureTable.ItemsSource= null;
             InitializeComponent();
         }
     }

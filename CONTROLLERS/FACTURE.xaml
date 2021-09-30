@@ -9,14 +9,20 @@
       Title="FACTURE">
 
     <Grid>
-        <local:CobraPage Grid.Column="1" Margin="37,26,47.6,28" Grid.RowSpan="2" >
+        <local:CobraPage Margin="37,26,48,9.6" >
             <local:CobraPage.HeadPage>
                 <Label Content="FACTURE">
                 </Label>
             </local:CobraPage.HeadPage>
             <local:CobraPage.BodyPage>
-                <Label Content="BodyFACTURE">
-                </Label>
+                <StackPanel>
+                    <Label Content="BodyFACTURE" Height="43" Margin="0,0,-0.4,0">
+                    </Label>
+                    <DataGrid  Height="291" Margin="0,0,-0.4,0">
+
+                    </DataGrid>
+                </StackPanel>
+
             </local:CobraPage.BodyPage>
         </local:CobraPage>
     </Grid>

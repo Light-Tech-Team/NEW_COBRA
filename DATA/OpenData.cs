@@ -24,7 +24,11 @@ namespace NEW_COBRA.DATA
         {
             return this.excel.Workbooks.Open("Cobra.xlsx");
         }
+        public void CloseWorkbook()
+        {
+           this.excel.Workbooks.Close();
+        }
 
-      
+
     }
 }

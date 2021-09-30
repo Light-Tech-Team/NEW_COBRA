@@ -22,6 +22,7 @@ namespace NEW_COBRA
     {
         public BONS()
         {
+          //  BonsTable.ItemsSource= null;
             InitializeComponent();
         }
     }

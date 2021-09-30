@@ -13,10 +13,17 @@
             <local:CobraPage.HeadPage>
                 <Label Content="STOCK">
                 </Label>
+                
             </local:CobraPage.HeadPage>
             <local:CobraPage.BodyPage>
-                <Label Content="BodySTOCK">
-                </Label>
+               
+                <StackPanel>
+                    <Label Content="BodySTOCK">
+                    </Label>
+                    <DataGrid Height="291" Margin="0,0,-0.4,0">
+
+                    </DataGrid>
+                </StackPanel>
             </local:CobraPage.BodyPage>
         </local:CobraPage>
     </Grid>

@@ -15,8 +15,14 @@
                 </Label>
             </local:CobraPage.HeadPage>
             <local:CobraPage.BodyPage>
-                <Label Content="BodyBONS">
-                </Label>
+               
+                <StackPanel>
+                    <Label Content="BodyBONS">
+                    </Label>
+                    <DataGrid Height="291" Margin="0,0,-0.4,0">
+
+                    </DataGrid>
+                </StackPanel>
             </local:CobraPage.BodyPage>
         </local:CobraPage>
     </Grid>
