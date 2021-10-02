@@ -6,16 +6,19 @@
       xmlns:local="clr-namespace:NEW_COBRA"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FACTURE">
+     >
 
     <Grid>
-        <local:CobraPage Margin="37,26,48,9.6" >
+        <local:CobraPage Margin="43,26,42,9.6" Loaded="CobraPage_Loaded" >
             <local:CobraPage.HeadPage>
-                <Label Content="FACTURE">
-                </Label>
+                <Grid> <Label Content="FACTURE" Margin="0,0,528.6,0.2">
+                    </Label>
+                    <Button Click="Button_Click"  Content="إضافة فاتورة" Margin="557,10,10,10" > </Button>
+                    
+                </Grid>
             </local:CobraPage.HeadPage>
             <local:CobraPage.BodyPage>
-                <StackPanel>
+                <StackPanel  >
                     <Label Content="BodyFACTURE" Height="43" Margin="0,0,-0.4,0">
                     </Label>
                     <DataGrid  Height="291" Margin="0,0,-0.4,0">

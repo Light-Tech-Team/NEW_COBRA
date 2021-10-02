@@ -16,11 +16,17 @@ namespace NEW_COBRA
         private short price_sell;
 
 
+
         public string Code { get => code; set => code = value; }
         public string Name { get => name; set => name = value; }
         public short Price_buy { get => price_buy; set => price_buy = value; }
         public short Price_sell { get => price_sell; set => price_sell = value; }
         public byte Family_code { get => family_code; set => family_code = value; }
         public byte Id { get => id; set => id = value; }
+
+
+       
+
+
     }
 }

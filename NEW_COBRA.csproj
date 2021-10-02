@@ -71,17 +71,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DATA\BonsData.cs" />
+    <Compile Include="DATA\FamilyData.cs" />
     <Compile Include="DATA\OpenData.cs" />
     <Compile Include="DATA\ClientData.cs" />
     <Compile Include="DATA\FactureData.cs" />
     <Compile Include="DATA\PanneData.cs" />
     <Compile Include="DATA\StockData.cs" />
+    <Compile Include="ENTITY\FactureElement.cs" />
     <Compile Include="SERVICE\BonsService.cs" />
     <Compile Include="SERVICE\ClientService.cs" />
     <Compile Include="SERVICE\FactureService.cs" />
+    <Compile Include="SERVICE\FamilyService.cs" />
     <Compile Include="SERVICE\PanneService.cs" />
+    <Compile Include="SERVICE\ProductService.cs" />
     <Compile Include="SERVICE\StockService.cs" />
-    <Page Include="CobraPage.xaml">
+    <Page Include="CONTROLLERS\CobraPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,7 +117,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CobraPage.xaml.cs">
+    <Compile Include="CONTROLLERS\CobraPage.xaml.cs">
       <DependentUpon>CobraPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CONTROLLERS\BONS.xaml.cs">
@@ -142,7 +146,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
+    <Compile Include="ENTITY\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

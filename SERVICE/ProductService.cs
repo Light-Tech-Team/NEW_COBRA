@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace NEW_COBRA.SERVICE
 {
-    class FactureService
+    class ProductService
     {
-       public void addInvoice()
+        public void addProduct()
         {
 
         }
-        public void deleteInvoice()
+        public void deleteProduct()
         {
 
         }
-        public void getInvoice()
+        public void getProduct()
         {
 
         }
-        public void getAllInvoice()
+        public void getAllProduct()
         {
 
         }
-
-
     }
 }
