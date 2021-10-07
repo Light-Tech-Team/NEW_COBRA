@@ -21,10 +21,11 @@ namespace NEW_COBRA
     /// </summary>
     public partial class MainWindow : Window
     {
+        OpenData openData;
         public MainWindow()
         {
-            OpenData openData = new OpenData();
-            openData.OpenWorkbook();
+            this. openData = new OpenData();
+           
             InitializeComponent();
         }
         private void Call(object sender, RoutedEventArgs e)
@@ -38,7 +39,7 @@ namespace NEW_COBRA
                     {
                         Console.WriteLine(S);
 
-                        Home.Content = new FACTURE();
+                        Home.Content = new FACTURE(this.openData.OpenWorkbook()) ;
                     }
                     break;
                 case "BONS":

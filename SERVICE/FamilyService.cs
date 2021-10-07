@@ -1,4 +1,5 @@
-﻿using NEW_COBRA.DATA;
+﻿using Microsoft.Office.Interop.Excel;
+using NEW_COBRA.DATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,9 @@ namespace NEW_COBRA.SERVICE
         {
 
         }
-        public List<String> getAllFamily()
+        public List<String> getAllFamily(Workbook workbook)
         {
-            return this.familyData.getAllFamily();
+            return this.familyData.getAllFamily(workbook);
         }
     }
 }

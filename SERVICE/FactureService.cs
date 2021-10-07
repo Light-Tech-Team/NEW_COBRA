@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NEW_COBRA.DATA;
+using NEW_COBRA.ENTITY;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,14 @@ namespace NEW_COBRA.SERVICE
 {
     class FactureService
     {
-       public void addInvoice()
+        FactureData facturedata;
+        public FactureService()
+        {
+            this.facturedata = new FactureData(); 
+
+        }
+
+        public void addInvoice()
         {
 
         }
@@ -20,9 +29,9 @@ namespace NEW_COBRA.SERVICE
         {
 
         }
-        public void getAllInvoice()
+        public List<FactureEntity> getAllInvoice()
         {
-
+            return this.facturedata.getAllInvoice();
         }
 
 

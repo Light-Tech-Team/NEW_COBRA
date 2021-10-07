@@ -5,17 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NEW_COBRA"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      
       Title="CLIENT">
 
-    <Grid>
-        <local:CobraPage Grid.Column="1" Margin="37,26,47.6,28" Grid.RowSpan="2" >
-            <local:CobraPage.HeadPage>
+    <Grid d:DesignWidth="800" d:DesignHeight="612">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="538*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,2" Grid.Row="0">
+            <Grid x:Name="HeadPage">
                 <Label Content="CLIENT">
                 </Label>
-            </local:CobraPage.HeadPage>
-            <local:CobraPage.BodyPage>
-               
+
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,-0.4" Grid.Row="1">
+            <Grid x:Name="BodyPage">
                 <StackPanel>
                     <Label Content="BodyCLIENT">
                     </Label>
@@ -23,7 +29,9 @@
 
                     </DataGrid>
                 </StackPanel>
-            </local:CobraPage.BodyPage>
-        </local:CobraPage>
+
+            </Grid>
+
+        </Border>
     </Grid>
 </Page>

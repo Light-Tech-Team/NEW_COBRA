@@ -52,6 +52,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -85,10 +86,6 @@
     <Compile Include="SERVICE\PanneService.cs" />
     <Compile Include="SERVICE\ProductService.cs" />
     <Compile Include="SERVICE\StockService.cs" />
-    <Page Include="CONTROLLERS\CobraPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CONTROLLERS\BONS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,9 +113,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CONTROLLERS\CobraPage.xaml.cs">
-      <DependentUpon>CobraPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="CONTROLLERS\BONS.xaml.cs">
       <DependentUpon>BONS.xaml</DependentUpon>
