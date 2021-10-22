@@ -13,33 +13,46 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FireSharp.Config;
+using FireSharp;
+
 
 namespace NEW_COBRA
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
+        FirebaseConfig firebaseConfig = new FirebaseConfig
+        {
+            AuthSecret = "J4XSSr91u3cDkBAzbyISbBwVcUC9opLSt6TcJuBx",
+            BasePath = "https://cobra-c6303-default-rtdb.firebaseio.com/"
+
+        };
+        FirebaseClient firebaseClient;
         OpenData openData;
         public MainWindow()
         {
             this. openData = new OpenData();
-           
+
+
+          //Console.WriteLine
             InitializeComponent();
+            this. firebaseClient = new FirebaseClient(firebaseConfig);
         }
-        private void Call(object sender, RoutedEventArgs e)
+        private  void Call(object sender, RoutedEventArgs e)
         {
             string S = (sender as Button).Content.ToString();
 
+          
+          
             switch (S)
             {
                 case "FACTURE":
 
                     {
                         Console.WriteLine(S);
-
-                        Home.Content = new FACTURE(this.openData.OpenWorkbook()) ;
+                       
+                        Home.Content = new FACTURE(this.openData.OpenWorkbook(), this.firebaseClient) ;
                     }
                     break;
                 case "BONS":

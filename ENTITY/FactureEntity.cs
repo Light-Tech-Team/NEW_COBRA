@@ -14,9 +14,11 @@ namespace NEW_COBRA.ENTITY
 
         public float totalAmount { get; set; }
 
-        private FactureElement factureElement;
+       
+
+        private List<FactureElement> factureElement;
 
         public DateTime date { get; set; }
-        internal FactureElement FactureElement { get => factureElement; set => factureElement = value; }
+        public List<FactureElement> FactureElement { get => factureElement; set => factureElement = value; }
     }
 }

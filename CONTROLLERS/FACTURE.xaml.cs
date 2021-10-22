@@ -18,14 +18,13 @@ using Button= System.Windows.Controls.Button;
 using CheckBox = System.Windows.Controls.CheckBox;
 using DataGrid =  System.Windows.Controls.DataGrid;
 using NEW_COBRA.ENTITY;
+using NEW_COBRA.CONTROLLERS;
+using FireSharp;
 
 
 namespace NEW_COBRA
 {
-    
-    /// <summary>
-    /// Interaction logic for FACTURE.xaml
-    /// </summary>
+   
     public partial class FACTURE : System.Windows.Controls.Page
     {
         
@@ -33,46 +32,60 @@ namespace NEW_COBRA
         
         FamilyService familyService;
         FactureService factureService;
-        public FACTURE(Workbook workbook)
+        ProductService productService;
+        FirebaseClient firebaseClient;
+        public FACTURE(Workbook workbook, FirebaseClient firebaseClient)
         {
           
             this.workbook = workbook;
             this.familyService =new FamilyService();
             this.factureService = new FactureService();
-           
+            this.firebaseClient = firebaseClient;
+            this.productService = new ProductService();
             InitializeComponent();
             DataGrid1.ItemsSource = this.factureService.getAllInvoice();
         }
         void ShowHideDetails(object sender, RoutedEventArgs e)
         {
-            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
-                if (vis is DataGridRow)
-                {
-                    var row = (DataGridRow)vis;
-                    row.DetailsVisibility =
-                    row.DetailsVisibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-                    break;
-                }
+            
+           FactureDetail factureDetail = new FactureDetail( this.firebaseClient);
+            factureDetail.ShowDialog();
+      
+           
+          
         }
 
-
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {   HeadPage.Children.RemoveAt(1);
             BodyPage.Children.Clear();
-
-            StackPanel ST = new StackPanel();
-            foreach (string S in this.familyService.getAllFamily(this.workbook))
+            StackPanel stack = new StackPanel();
+            WrapPanel ST = new WrapPanel();
+            var fam = await this.familyService.getAllFamily(this.firebaseClient);
+            foreach (string S in fam)
             {
-             
                 CheckBox checkBox = new CheckBox();
                 checkBox.Content = S;  
                 ST.Children.Add(checkBox);
-
             }
-            
-            BodyPage.Children.Add(ST);
+            Button addFamily = new Button();
+            addFamily.Content = "add Family";
+            addFamily.Click += (s, eb) => {
+                Console.WriteLine("test0");
+                this.familyService.addFamily(this.firebaseClient);
+
+
+            };
+            stack.Children.Add(addFamily);
+            stack.Children.Add(ST);
+            Button next = new Button();
+            next.Content = "Next";
+            next.Click += (s, eb) => {
+                Console.WriteLine("test1");
+             
+               
+            };
+            stack.Children.Add(next);
+            BodyPage.Children.Add(stack);
 
         }
     }

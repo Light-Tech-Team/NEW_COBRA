@@ -9,8 +9,7 @@ namespace NEW_COBRA.DATA
     class OpenData
     {
         protected Application excel = new Application();
-        protected Workbook workbook;
-        protected Worksheet worksheet;
+        
         public OpenData()
         {
 

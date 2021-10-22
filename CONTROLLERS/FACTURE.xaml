@@ -20,7 +20,7 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,-0.4" Grid.Row="1">
             <Grid x:Name="BodyPage">
-                <DataGrid Name="DataGrid1">
+                <DataGrid Name="DataGrid1" AutoGenerateColumns="True">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
@@ -37,6 +37,7 @@
             </Grid>
 
         </Border>
+     
     </Grid>
    
 </Page>

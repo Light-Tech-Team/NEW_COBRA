@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using FireSharp;
+using Microsoft.Office.Interop.Excel;
 using NEW_COBRA.DATA;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,21 @@ namespace NEW_COBRA.SERVICE
             this.familyData = new FamilyData();
         }
 
-        public void addFamily()
+        public void addFamily(FirebaseClient firebaseClient)
         {
-
+            this.familyData.addFamily(firebaseClient);
         }
         public void deleteFamily()
         {
 
         }
-        public void getFamily()
+        public string getFamily(Workbook workbook, byte id)
         {
-
+            return this.familyData.getFamily(workbook, id);
         }
-        public List<String> getAllFamily(Workbook workbook)
+        public Task<List<String>> getAllFamily(FirebaseClient firebaseClient)
         {
-            return this.familyData.getAllFamily(workbook);
+            return this.familyData.getAllFamily(firebaseClient);
         }
     }
 }

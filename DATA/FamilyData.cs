@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using FireSharp;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +11,42 @@ namespace NEW_COBRA.DATA
     class FamilyData
     {
         List<String> stri = new List<String>();
-        public List<String> getAllFamily(Workbook workbook)
+        string sheet= "Family";
+
+        public async void addFamily(FirebaseClient firebaseClient)
         {
-            Worksheet worksheet = workbook.Sheets["Family"];
+            var Response = await firebaseClient.SetAsync("test/", "");
+        }
+        public void deleteFamily()
+        {
+
+        }
+        public string getFamily(Workbook workbook,byte id)
+        {
+            Worksheet worksheet = workbook.Sheets[sheet];
             int I = 4;
-          //  for (; I < 45; I++)
-            {
-               // Console.WriteLine((String)worksheet.Cells[I, 2].Value2);
-              //  if (((String)worksheet.Cells[I, 2].Value2)==null)
-                //    Console.WriteLine("VIDE");
+            while (true)
+            {   if(   ((byte)worksheet.Cells[I, 1].Value2)==id)    
+              { 
+                   return (String)worksheet.Cells[I, 2].Value2;
+                
+                }
+                I++;
             }
-             while ((String)worksheet.Cells[I, 2].Value2!=null)
-              {
-                Console.WriteLine("TEST");
-                stri.Add((String)worksheet.Cells[I, 2].Value2);
-                  I++;
-               }
+
+
+        }
+
+
+        public async Task<List<String> > getAllFamily( FirebaseClient firebaseClient)
+        {
+
+            var Response = await firebaseClient.GetAsync("FAMILY");
+            String[] STR= Response.ResultAs<String[]>();
+           
+             foreach (String S in STR)
+               stri.Add(S);
+                   
 
             return stri;
         }
