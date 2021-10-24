@@ -20,7 +20,7 @@ using DataGrid =  System.Windows.Controls.DataGrid;
 using NEW_COBRA.ENTITY;
 using NEW_COBRA.CONTROLLERS;
 using FireSharp;
-
+using System.Data;
 
 namespace NEW_COBRA
 {
@@ -34,25 +34,35 @@ namespace NEW_COBRA
         FactureService factureService;
         ProductService productService;
         FirebaseClient firebaseClient;
-        public FACTURE(Workbook workbook, FirebaseClient firebaseClient)
+        public FACTURE( FirebaseClient firebaseClient)
         {
           
-            this.workbook = workbook;
+           
             this.familyService =new FamilyService();
             this.factureService = new FactureService();
             this.firebaseClient = firebaseClient;
             this.productService = new ProductService();
             InitializeComponent();
-            DataGrid1.ItemsSource = this.factureService.getAllInvoice();
+            DataGrid1.ItemsSource = this.factureService.getAllInvoice(firebaseClient).Result;
         }
         void ShowHideDetails(object sender, RoutedEventArgs e)
         {
+            Button btn = (Button)sender;
             
-           FactureDetail factureDetail = new FactureDetail( this.firebaseClient);
+                var row = GetParent<DataGridRow>((Button)sender);
+                var index = DataGrid1.Items.IndexOf(row.Item);
+             
+
+            FactureDetail factureDetail = new FactureDetail( this.firebaseClient, (byte)index);
             factureDetail.ShowDialog();
-      
-           
+        
           
+        }
+        private TargetType GetParent<TargetType>(DependencyObject o)
+            where TargetType : DependencyObject
+        {
+            if (o == null || o is TargetType) return (TargetType)o;
+            return GetParent<TargetType>(VisualTreeHelper.GetParent(o));
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -60,6 +70,7 @@ namespace NEW_COBRA
             BodyPage.Children.Clear();
             StackPanel stack = new StackPanel();
             WrapPanel ST = new WrapPanel();
+
             var fam = await this.familyService.getAllFamily(this.firebaseClient);
             foreach (string S in fam)
             {

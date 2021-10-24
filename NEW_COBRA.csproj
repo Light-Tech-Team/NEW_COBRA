@@ -100,6 +100,9 @@
     <Compile Include="CONTROLLERS\FactureDetail.xaml.cs">
       <DependentUpon>FactureDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CONTROLLERS\familyDetail.xaml.cs">
+      <DependentUpon>familyDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DATA\BonsData.cs" />
     <Compile Include="DATA\FamilyData.cs" />
     <Compile Include="DATA\OpenData.cs" />
@@ -133,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CONTROLLERS\FactureDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\familyDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -32,9 +32,9 @@ namespace NEW_COBRA.SERVICE
 
             return this.facturedata.getInvoice(  firebaseClient,  id);
         }
-        public List<FactureEntity> getAllInvoice()
+        public Task<List<FactureEntity>> getAllInvoice(FirebaseClient firebaseClient)
         {
-            return this.facturedata.getAllInvoice();
+            return this.facturedata.getAllInvoice(firebaseClient);
         }
 
 

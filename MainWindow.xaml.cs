@@ -32,7 +32,7 @@ namespace NEW_COBRA
         OpenData openData;
         public MainWindow()
         {
-            this. openData = new OpenData();
+          
 
 
           //Console.WriteLine
@@ -52,7 +52,7 @@ namespace NEW_COBRA
                     {
                         Console.WriteLine(S);
                        
-                        Home.Content = new FACTURE(this.openData.OpenWorkbook(), this.firebaseClient) ;
+                        Home.Content = new FACTURE( this.firebaseClient) ;
                     }
                     break;
                 case "BONS":

@@ -33,29 +33,40 @@ namespace NEW_COBRA.DATA
         
             factureEntity.FactureElement=new List<FactureElement>();
            
-            byte J = 0;
+            byte J = 1;
             while (true)
-            {    
-                FirebaseResponse ResponseP = await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/"+ J +"/P").ConfigureAwait(false);
-                
-                int P = ResponseP.ResultAs<int>();
+            {
+                int P;
+                try { 
+                FirebaseResponse ResponseP = await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/"+ (J-1) +"/P").ConfigureAwait(false);
+                 P = ResponseP.ResultAs<int>();
+                }
+                catch(Exception e)
+                {
+                    if (true) { break; }
 
+                }
+
+              
+                
                 var product = productService.getProduct(firebaseClient, (byte) P);
                 Product pro = product.Result;
-                FirebaseResponse ResponseQuan = await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/" + J  + "/Quan").ConfigureAwait(false);
-    
+                FirebaseResponse ResponseQuan = await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/" + (J - 1) + "/Quan").ConfigureAwait(false);
+                Console.WriteLine(pro.CODE);
                 factureEntity.FactureElement.Add(new FactureElement()
-                {
+                { 
                     IdFactureElement = J,
                     Quantity = (byte)ResponseQuan.ResultAs<int>(),
                     CodeProduct = pro.CODE,
                     NameProduct = pro.NAME,
                     Price_buy = pro.PRICE_BUY,
                     Amount = (byte)ResponseQuan.ResultAs<int>() * pro.PRICE_BUY
-                });
+                }); 
 
                 J++;
-                if (ResponseP.Body.Length == J) { break; }
+                
+               
+             
             }
          
             return factureEntity;
@@ -65,30 +76,38 @@ namespace NEW_COBRA.DATA
 
 
 
-        public List<FactureEntity> getAllInvoice()
+        public async Task<List<FactureEntity>> getAllInvoice(FirebaseClient firebaseClient)
         {
             List<FactureEntity> F = new List<FactureEntity>();
-            F.Add(new FactureEntity()
+            byte o = 1;
+            while (true)
             {
-                id = 0,
-                totalAmount = 3447,
-                date = new DateTime(1995, 2, 7)
+                float P;
+                try
+                {
+                    FirebaseResponse ResponseTotalAmount = await firebaseClient.GetAsync("FACTURE/" + (o-1) + "/totalAmount").ConfigureAwait(false);
+                    P = ResponseTotalAmount.ResultAs<float>();
+                    
+                    F.Add(new FactureEntity()
+                    {
+                        id = o,
+                        totalAmount = P,
+                       date = new DateTime(1995, 2, 7)
 
-            });
-            F.Add(new FactureEntity()
-            {
-                id = 1,
-                totalAmount = 3447,
-                date = new DateTime(1995, 2, 7),
+                    });
+                    Console.WriteLine(P);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error dia");
+                    if (true) { break; }
 
-            });
-            F.Add(new FactureEntity()
-            {
-                id = 2,
-                totalAmount = 3447,
-                date = new DateTime(1995, 2, 7),
+                }
+                o++;
 
-            });
+            }
+          
+      
 
             return F;
 
