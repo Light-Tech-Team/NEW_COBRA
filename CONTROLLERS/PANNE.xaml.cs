@@ -23,6 +23,7 @@ namespace NEW_COBRA
         public PANNE()
         {
             InitializeComponent();
+
         }
     }
 }

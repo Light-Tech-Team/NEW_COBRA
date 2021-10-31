@@ -1,6 +1,7 @@
 ﻿using FireSharp;
 using FireSharp.Response;
 using Microsoft.Office.Interop.Excel;
+using NEW_COBRA.ENTITY;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,32 @@ namespace NEW_COBRA.DATA
             return  product;
             
         }
-        public List<Product> getProductOfFamily(Workbook workbook, byte ID_FAMILY)
+        public async Task<List<Product>> getProductOfFamily(FirebaseClient firebaseClient, byte ID_FAMILY)
         {
             List<Product> product = new List<Product>();
+            byte o = 0;
+            while (true)
+            {
+                
+                try
+                {
+                    FirebaseResponse ResponseID_FAMILY = await firebaseClient.GetAsync("PRODUCT/" + o + "/ID_FAMILY").ConfigureAwait(false);
+                    if (ID_FAMILY == ResponseID_FAMILY.ResultAs<byte>())
+                    {
+                        FirebaseResponse ResponseProduct = await firebaseClient.GetAsync("PRODUCT/" + o ).ConfigureAwait(false);
+                        product.Add(ResponseProduct.ResultAs<Product>());
+                    } 
+                   
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("er dia" + o);
+                    if (true) { break; }
 
+                }
+                o++;
+
+            }
             return product;
         }
 

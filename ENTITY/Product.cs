@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NEW_COBRA
 {
-    class Product
+    public class Product
     {
     
         private byte family_code;

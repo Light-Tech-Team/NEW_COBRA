@@ -29,16 +29,20 @@ namespace NEW_COBRA
 
         };
         FirebaseClient firebaseClient;
-        OpenData openData;
+       
         public MainWindow()
         {
-          
+            
+
 
 
           //Console.WriteLine
             InitializeComponent();
             this. firebaseClient = new FirebaseClient(firebaseConfig);
         }
+
+
+    
         private  void Call(object sender, RoutedEventArgs e)
         {
             string S = (sender as Button).Content.ToString();
@@ -87,5 +91,11 @@ namespace NEW_COBRA
 
         }
 
+      
+
+        private void Home_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

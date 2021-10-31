@@ -1,6 +1,7 @@
 ﻿using FireSharp;
 using Microsoft.Office.Interop.Excel;
 using NEW_COBRA.DATA;
+using NEW_COBRA.ENTITY;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,11 @@ namespace NEW_COBRA.SERVICE
 
             return this.productData.getProduct(  firebaseClient,  id);
         }
-        public List<Product> getProductOfFamily(Workbook workbook, byte ID_FAMILY)
+        public Task<List<Product>> getProductOfFamily(FirebaseClient firebaseClient, byte ID_FAMILY)
         {
 
 
-            return this.productData.getProductOfFamily(workbook, ID_FAMILY);
+            return this.productData.getProductOfFamily( firebaseClient,  ID_FAMILY);
         }
     }
 }

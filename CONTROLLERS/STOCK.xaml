@@ -14,18 +14,18 @@
             <RowDefinition Height="538*"/>
         </Grid.RowDefinitions>
         <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,2" Grid.Row="0">
-            <Grid x:Name="HeadPage">
+            <Grid x:Name="HeadPage" Background="#FFEEF5DB">
                 <Label Content="STOCK">
                 </Label>
 
             </Grid>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" Margin="0,4.8,0,-0.4" Grid.Row="1">
-            <Grid x:Name="BodyPage">
+            <Grid x:Name="BodyPage" Background="#FFEEF5DB">
                 <StackPanel>
                     <Label Content="BodySTOCK">
                     </Label>
-                    <DataGrid Height="291" Margin="0,0,-0.4,0">
+                    <DataGrid  Margin="0,0,-0.4,0">
 
                     </DataGrid>
                 </StackPanel>

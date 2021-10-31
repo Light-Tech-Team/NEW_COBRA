@@ -1,5 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
-using NEW_COBRA.SERVICE;
+﻿using NEW_COBRA.SERVICE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +19,6 @@ using DataGrid =  System.Windows.Controls.DataGrid;
 using NEW_COBRA.ENTITY;
 using NEW_COBRA.CONTROLLERS;
 using FireSharp;
-using System.Data;
 
 namespace NEW_COBRA
 {
@@ -28,16 +26,12 @@ namespace NEW_COBRA
     public partial class FACTURE : System.Windows.Controls.Page
     {
         
-        Workbook workbook;
-        
         FamilyService familyService;
         FactureService factureService;
         ProductService productService;
         FirebaseClient firebaseClient;
         public FACTURE( FirebaseClient firebaseClient)
         {
-          
-           
             this.familyService =new FamilyService();
             this.factureService = new FactureService();
             this.firebaseClient = firebaseClient;
@@ -52,11 +46,9 @@ namespace NEW_COBRA
                 var row = GetParent<DataGridRow>((Button)sender);
                 var index = DataGrid1.Items.IndexOf(row.Item);
              
-
             FactureDetail factureDetail = new FactureDetail( this.firebaseClient, (byte)index);
             factureDetail.ShowDialog();
         
-          
         }
         private TargetType GetParent<TargetType>(DependencyObject o)
             where TargetType : DependencyObject
@@ -69,31 +61,33 @@ namespace NEW_COBRA
         {   HeadPage.Children.RemoveAt(1);
             BodyPage.Children.Clear();
             StackPanel stack = new StackPanel();
-            WrapPanel ST = new WrapPanel();
+            StackPanel ST = new StackPanel();
 
-            var fam = await this.familyService.getAllFamily(this.firebaseClient);
-            foreach (string S in fam)
-            {
-                CheckBox checkBox = new CheckBox();
-                checkBox.Content = S;  
-                ST.Children.Add(checkBox);
+            byte i = 0;
+            foreach (string S in await this.familyService.getAllFamily(this.firebaseClient))
+            { List<Product> pr = this.productService.getProductOfFamily(firebaseClient, i).Result;
+               
+                ST.Children.Add(new familyDetail(S, pr));
+                i++;
             }
+
+          
             Button addFamily = new Button();
             addFamily.Content = "add Family";
             addFamily.Click += (s, eb) => {
                 Console.WriteLine("test0");
                 this.familyService.addFamily(this.firebaseClient);
-
-
             };
+
             stack.Children.Add(addFamily);
             stack.Children.Add(ST);
+           
+           
             Button next = new Button();
             next.Content = "Next";
             next.Click += (s, eb) => {
                 Console.WriteLine("test1");
-             
-               
+                   
             };
             stack.Children.Add(next);
             BodyPage.Children.Add(stack);
