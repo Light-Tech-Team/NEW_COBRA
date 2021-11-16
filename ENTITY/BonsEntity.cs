@@ -8,5 +8,9 @@ namespace NEW_COBRA.ENTITY
 {
     class BonsEntity
     {
+
+
+
+
     }
 }

@@ -7,12 +7,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace NEW_COBRA.DATA
 {
     class ProductData
     {
-        Product product=new Product();
+        List<Product> product ;
+        public ProductData(FirebaseClient firebaseClient)
+        {
+            this.getFirebaseProduct(firebaseClient);
+        }
+       
+        private async void getFirebaseProduct(FirebaseClient firebaseClient)
+        {   
+            FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
+            this.product = Response.ResultAs<List<Product>>() ; 
+        }
+
         public void addProduct()
         {
 
@@ -21,42 +33,15 @@ namespace NEW_COBRA.DATA
         {
 
         }
-        public async  Task<Product> getProduct( FirebaseClient firebaseClient, byte id)
+        public Product getProduct( byte id)
         {   
-      
-            FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT/" + id).ConfigureAwait(false);
-            product = Response.ResultAs<Product>();
-       
-           
-            return  product;
-            
+            return  this.product.ElementAt<Product>(id);
         }
-        public async Task<List<Product>> getProductOfFamily(FirebaseClient firebaseClient, byte ID_FAMILY)
-        {
-            List<Product> product = new List<Product>();
-            byte o = 0;
-            while (true)
-            {
-                
-                try
-                {
-                    FirebaseResponse ResponseID_FAMILY = await firebaseClient.GetAsync("PRODUCT/" + o + "/ID_FAMILY").ConfigureAwait(false);
-                    if (ID_FAMILY == ResponseID_FAMILY.ResultAs<byte>())
-                    {
-                        FirebaseResponse ResponseProduct = await firebaseClient.GetAsync("PRODUCT/" + o ).ConfigureAwait(false);
-                        product.Add(ResponseProduct.ResultAs<Product>());
-                    } 
-                   
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("er dia" + o);
-                    if (true) { break; }
-
-                }
-                o++;
-
-            }
+        public List<Product> getProductOfFamily(byte ID_FAMILY)
+        { List<Product> product = new List<Product>();
+          for(byte o = 0; o<this.product.Count; o++)
+                    if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
+                        product.Add(this.product.ElementAt<Product>(o));
             return product;
         }
 

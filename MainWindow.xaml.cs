@@ -32,58 +32,41 @@ namespace NEW_COBRA
        
         public MainWindow()
         {
-            
-
-
-
-          //Console.WriteLine
             InitializeComponent();
             this. firebaseClient = new FirebaseClient(firebaseConfig);
         }
 
-
-    
         private  void Call(object sender, RoutedEventArgs e)
         {
-            string S = (sender as Button).Content.ToString();
 
-          
-          
+            Button B = (Button)sender;
+            string S = B.Content.ToString();
+
             switch (S)
             {
                 case "FACTURE":
 
                     {
-                        Console.WriteLine(S);
-                       
                         Home.Content = new FACTURE( this.firebaseClient) ;
                     }
                     break;
                 case "BONS":
                     {
-                        Console.WriteLine(S);
-
                         Home.Content = new BONS();
                     }
                     break;
                 case "CLIENT":
                     {
-                        Console.WriteLine(S);
-
                         Home.Content = new CLIENT();
                     }
                     break;
                 case "PANNE":
                     {
-                        Console.WriteLine(S);
-
                         Home.Content = new PANNE();
                     }
                     break;
                 case "STOCK":
                     {
-                        Console.WriteLine(S);
-
                         Home.Content = new STOCK();
                     }
                     break;
@@ -91,11 +74,6 @@ namespace NEW_COBRA
 
         }
 
-      
-
-        private void Home_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
+     
     }
 }

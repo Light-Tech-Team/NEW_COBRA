@@ -28,7 +28,7 @@ namespace NEW_COBRA.DATA
 
         }
         public async Task<FactureEntity> getInvoice( FirebaseClient firebaseClient, byte b)
-        {   ProductService productService = new ProductService();
+        {   ProductService productService = new ProductService(firebaseClient);
             FactureEntity factureEntity = new FactureEntity();
         
             factureEntity.FactureElement=new List<FactureElement>();
@@ -47,10 +47,10 @@ namespace NEW_COBRA.DATA
 
                 }
 
-              
-                
-                var product = productService.getProduct(firebaseClient, (byte) P);
-                Product pro = product.Result;
+
+
+                Product pro  = productService.getProduct( (byte) P);
+               
                 FirebaseResponse ResponseQuan = await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/" + (J - 1) + "/Quan").ConfigureAwait(false);
                 Console.WriteLine(pro.CODE);
                 factureEntity.FactureElement.Add(new FactureElement()

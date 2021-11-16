@@ -25,7 +25,7 @@ namespace NEW_COBRA
    
     public partial class FACTURE : System.Windows.Controls.Page
     {
-        
+        StackPanel addFact = new StackPanel();
         FamilyService familyService;
         FactureService factureService;
         ProductService productService;
@@ -35,20 +35,18 @@ namespace NEW_COBRA
             this.familyService =new FamilyService();
             this.factureService = new FactureService();
             this.firebaseClient = firebaseClient;
-            this.productService = new ProductService();
+            this.productService = new ProductService(firebaseClient);
+          
             InitializeComponent();
+            reshow();
             DataGrid1.ItemsSource = this.factureService.getAllInvoice(firebaseClient).Result;
         }
         void ShowHideDetails(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            
-                var row = GetParent<DataGridRow>((Button)sender);
-                var index = DataGrid1.Items.IndexOf(row.Item);
-             
+            var row = GetParent<DataGridRow>((Button)sender);
+            var index = DataGrid1.Items.IndexOf(row.Item);
             FactureDetail factureDetail = new FactureDetail( this.firebaseClient, (byte)index);
             factureDetail.ShowDialog();
-        
         }
         private TargetType GetParent<TargetType>(DependencyObject o)
             where TargetType : DependencyObject
@@ -57,41 +55,42 @@ namespace NEW_COBRA
             return GetParent<TargetType>(VisualTreeHelper.GetParent(o));
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private  void Button_Click(object sender, RoutedEventArgs e)
         {   HeadPage.Children.RemoveAt(1);
             BodyPage.Children.Clear();
-            StackPanel stack = new StackPanel();
-            StackPanel ST = new StackPanel();
+            BodyPage.Children.Add(this.addFact);
 
+        }
+        private async void getAllFamily()
+        {
+            StackPanel ST = new StackPanel();
             byte i = 0;
             foreach (string S in await this.familyService.getAllFamily(this.firebaseClient))
-            { List<Product> pr = this.productService.getProductOfFamily(firebaseClient, i).Result;
-               
+            {
+                List<Product> pr = this.productService.getProductOfFamily(i);
                 ST.Children.Add(new familyDetail(S, pr));
                 i++;
             }
-
-          
+            this.addFact.Children.Add(ST);
+        }
+        private void reshow()
+        {   
             Button addFamily = new Button();
+            Button next = new Button();
+
             addFamily.Content = "add Family";
             addFamily.Click += (s, eb) => {
-                Console.WriteLine("test0");
                 this.familyService.addFamily(this.firebaseClient);
             };
-
-            stack.Children.Add(addFamily);
-            stack.Children.Add(ST);
            
-           
-            Button next = new Button();
             next.Content = "Next";
             next.Click += (s, eb) => {
-                Console.WriteLine("test1");
-                   
             };
-            stack.Children.Add(next);
-            BodyPage.Children.Add(stack);
 
+            this.addFact.Children.Add(addFamily);
+            getAllFamily();
+            this.addFact.Children.Add(next);
+            
         }
     }
 }

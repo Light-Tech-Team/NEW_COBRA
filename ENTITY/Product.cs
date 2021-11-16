@@ -12,15 +12,15 @@ namespace NEW_COBRA
         private byte family_code;
         private string code;
         private string name;
-        private short price_buy;
-        private short price_sell;
+        private int price_buy;
+        private int price_sell;
 
 
 
         public string CODE { get => code; set => code = value; }
         public string NAME { get => name; set => name = value; }
-        public short PRICE_BUY { get => price_buy; set => price_buy = value; }
-        public short PRICE_SELL { get => price_sell; set => price_sell = value; }
+        public int PRICE_BUY { get => price_buy; set => price_buy = value; }
+        public int PRICE_SELL { get => price_sell; set => price_sell = value; }
         public byte ID_FAMILY { get => family_code; set => family_code = value; }
      
 
