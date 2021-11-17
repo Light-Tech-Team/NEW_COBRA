@@ -19,7 +19,7 @@ using FireSharp;
 
 namespace NEW_COBRA
 {
-   
+
     public partial class MainWindow : Window
     {
         FirebaseConfig firebaseConfig = new FirebaseConfig
@@ -29,51 +29,40 @@ namespace NEW_COBRA
 
         };
         FirebaseClient firebaseClient;
-       
+
         public MainWindow()
         {
             InitializeComponent();
-            this. firebaseClient = new FirebaseClient(firebaseConfig);
+            this.firebaseClient = new FirebaseClient(firebaseConfig);
         }
-
-        private  void Call(object sender, RoutedEventArgs e)
+        private void Call(object sender, RoutedEventArgs e)
         {
-
-            Button B = (Button)sender;
-            string S = B.Content.ToString();
-
+            string S = (sender as ListViewItem).Name;
             switch (S)
             {
-                case "FACTURE":
+                case "Facture":
+                    Home.Content = new FACTURE(this.firebaseClient);
+                    break;
+                case "Bon":
+                    Home.Content = new BONS();
+                    break;
+                case "Client":
+                    Home.Content = new CLIENT();
+                    break;
+                case "Stock":
+                    Home.Content = new STOCK();
+                    break;
+                case "Panne":
+                    Home.Content = new PANNE();
+                    break;
+                case "Exit":
+                    Close();
+                    break;
 
-                    {
-                        Home.Content = new FACTURE( this.firebaseClient) ;
-                    }
-                    break;
-                case "BONS":
-                    {
-                        Home.Content = new BONS();
-                    }
-                    break;
-                case "CLIENT":
-                    {
-                        Home.Content = new CLIENT();
-                    }
-                    break;
-                case "PANNE":
-                    {
-                        Home.Content = new PANNE();
-                    }
-                    break;
-                case "STOCK":
-                    {
-                        Home.Content = new STOCK();
-                    }
-                    break;
-            };
+            }
+
+
 
         }
-
-     
     }
 }
