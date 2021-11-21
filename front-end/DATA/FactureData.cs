@@ -37,9 +37,12 @@ namespace NEW_COBRA.DATA
             while (true)
             {
                 int P;
-                try { 
-                FirebaseResponse ResponseP =await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/"+ (J-1) +"/P").ConfigureAwait(false);
-                 P = ResponseP.ResultAs<int>();
+                try {
+               
+                    FirebaseResponse ResponseP =await firebaseClient.GetAsync("FACTURE/" + b + "/FactureElement/"+ (J-1) +"/P").ConfigureAwait(false);
+                 
+                    P = ResponseP.ResultAs<int>();
+                    Console.WriteLine(P);
                 }
                 catch(Exception e)
                 {

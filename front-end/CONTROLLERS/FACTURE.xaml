@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NEW_COBRA.CONTROLLERS"
       mc:Ignorable="d"  >
-    <Grid x:Name="grd" Grid.Column="1"  Grid.Row="1" Height="600" Width="769">
+    <Grid  Grid.Column="1"  Grid.Row="1" Height="600" Width="769">
         <Grid x:Name="HeadPage"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="769" Height="157" Background="White">
             <Grid Background="#F6F7F8"  HorizontalAlignment="Left" Height="137" Margin="3,10,0,0" VerticalAlignment="Top" Width="762"/>
 
@@ -13,12 +13,13 @@
 
 
         </Grid>
+        
         <DataGrid x:Name="Dtgd" ColumnWidth="3*" HorizontalAlignment="Left"  Height="446" VerticalAlignment="Bottom" Width="769"  Foreground="#DD000000" BorderBrush="#FFF7F7F7"  HorizontalContentAlignment="Center" Background="#FF016DB2" RowBackground="Azure" Visibility="Visible">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="Azure" Foreground="#FF016DB2" Content="Show" BorderBrush="#FF016DB2"></Button>
+                            <Button Background="Azure" Foreground="#FF016DB2" Content="Show" BorderBrush="#FF016DB2" Click="Show"></Button>
                         </DataTemplate>
 
 

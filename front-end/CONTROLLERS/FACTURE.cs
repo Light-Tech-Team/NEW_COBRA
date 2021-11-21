@@ -37,15 +37,15 @@ namespace NEW_COBRA
             this.firebaseClient = firebaseClient;
             this.productService = new ProductService(firebaseClient);
             InitializeComponent();
-            //Dtgd.ItemsSource = this.factureService.getAllInvoice(firebaseClient).Result;
+            Dtgd.ItemsSource = this.factureService.getAllInvoice(firebaseClient).Result;
         }
-         void ShowHideDetails(object sender, RoutedEventArgs e)
+         void Show(object sender, RoutedEventArgs e)
           {
               Button btn = (Button)sender;
 
                   var row = GetParent<DataGridRow>((Button)sender);
                   var index = Dtgd.Items.IndexOf(row.Item);
-
+            
               FactureDetail factureDetail = new FactureDetail( this.firebaseClient, (byte)index);
               factureDetail.ShowDialog();
 
@@ -60,6 +60,7 @@ namespace NEW_COBRA
         /*  private async void Button_Click(object sender, RoutedEventArgs e)
           {   HeadPage.Children.RemoveAt(1);
               grd.Children.Clear();
+              grd.Children.Add
               StackPanel stack = new StackPanel();
               StackPanel ST = new StackPanel();
 
