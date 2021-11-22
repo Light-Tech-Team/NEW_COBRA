@@ -32,11 +32,11 @@ namespace NEW_COBRA.CONTROLLERS
             InitializeComponent();
             this.factureEntity = this.factureService.getInvoice( firebaseClient, I).Result;
             factureTable.ItemsSource = this.factureEntity.FactureElement;
-            id.Text = (I+1).ToString();
             DateTime Date= this.factureEntity.date;
+           /* id.Text = (I + 1).ToString();
             totalAmount.Text = this.factureEntity.totalAmount.ToString() ;
             TVA.Text = (this.factureEntity.totalAmount * 0.19).ToString();
-            TTC.Text = (this.factureEntity.totalAmount * 1.19).ToString();
+            TTC.Text = (this.factureEntity.totalAmount * 1.19).ToString();*/
        
 
         }

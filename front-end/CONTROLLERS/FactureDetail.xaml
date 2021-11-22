@@ -5,48 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NEW_COBRA.CONTROLLERS"
         mc:Ignorable="d"
-        Title="FactureDetail" Height="450" Width="800">
-    <Grid>
+        Title="FactureDetail"
+        Height="564" 
+        Width="912"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid Background="#FF95B7CB">
         <Grid Height="100" Margin="10,10,9.6,0" VerticalAlignment="Top" RenderTransformOrigin="0.266,-1.467">
-            <StackPanel   Orientation="Horizontal" Margin="10,10,9.6,0">
-                <Label>id</Label>
-                <Border Background="SkyBlue">
-                    <TextBox x:Name="id"></TextBox>
-                </Border>
+            <StackPanel Orientation="Horizontal"  Margin="654,0,0.4,80">
+                <Label Foreground="Black" VerticalContentAlignment="Center" Width="49" FontSize="11">Date</Label>
+                <TextBlock Width="154" Background="#FFDEDEDE" Text="{Binding Path=Date, StringFormat=dd-MM-yyyy}" ></TextBlock>
+
+            </StackPanel>
+            <StackPanel Height="20" Orientation="Horizontal" Margin="0,38,644.4,42">
+                <Label Width="97" Content="Facture N=°" FontSize="11" HorizontalContentAlignment="Center" Background="{x:Null}" Foreground="Black"></Label>
+                <TextBox Background="AntiqueWhite" Width="142"></TextBox>
 
 
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="100,10,9.6,0">
-                <Label>Date</Label>
-                <Border Background="SkyBlue">
-                    <TextBox Text="{Binding Path=Date, StringFormat=dd-MM-yyyy}" ></TextBox>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="200,10,9.6,0">
-                <Label>totalAmount</Label>
-                <Border Background="SkyBlue">
-                    <TextBox x:Name="totalAmount"></TextBox>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="300,10,9.6,0">
-                <Label>TVA</Label>
-                <Border Background="SkyBlue">
-                    <TextBox x:Name="TVA"></TextBox>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="400,10,9.6,0">
-                <Label RenderTransformOrigin="7.226,0.519" Content="TTC" Margin="0,2,0,-2"/>
-                <Border Background="SkyBlue">
-                    <TextBox x:Name="TTC"></TextBox>
-                </Border>
+            <StackPanel Height="20" Orientation="Horizontal" Margin="0,74,644.4,6">
+                <Label Width="97" Foreground="Black" Content="Fournisseur  " FontSize="11" HorizontalContentAlignment="Center"></Label>
+                <TextBox Background="AntiqueWhite" Width="142"></TextBox>
 
             </StackPanel>
-
 
         </Grid>
 
 
-        <DataGrid x:Name="factureTable"  Margin="0,115,9.6,10" Background="#FFA9C1CA"/>
+        <DataGrid x:Name="factureTable"  Margin="0,115,10,133" Background="#FFB3D4E0" Foreground="Black" />
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="118" Margin="551,405,0,0" VerticalAlignment="Top" Width="333">
+            <StackPanel Orientation="Horizontal"  Height="23" Background="AliceBlue">
+                <Label Width="135" Content="            Total Fact" Foreground="Black" ></Label>
+                <TextBlock  Width="197" Background="#FFE2E4E4" Foreground="Black" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Background="AliceBlue">
+                <Label Width="135" Content="             Last Sold" Foreground="Black" ></Label>
+                <TextBlock  Width="197" Background="#FFE2E4E4" Foreground="Black" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Background="AliceBlue">
+                <Label Width="135" Content="             Total" Foreground="Black" ></Label>
+                <TextBlock  Width="197" Background="#FFE2E4E4" Foreground="Black" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Background="AliceBlue">
+                <Label Width="135" Content="             Versement" Foreground="Black" ></Label>
+                <TextBlock  Width="197" Background="#FFE2E4E4" Foreground="Black" ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="23" Background="AliceBlue">
+                <Label Width="135" Content="              Solde" Foreground="Black" ></Label>
+                <TextBlock  Width="197" Background="#FFE2E4E4" Foreground="Black" ></TextBlock>
+            </StackPanel>
+
+
+        </StackPanel>
 
     </Grid>
 </Window>

@@ -25,9 +25,7 @@
 
         </Grid.RowDefinitions>
 
-        <Frame x:Name="Home" Height="600" Width="769"  Grid.Column="1"  Grid.Row="1"  Background="#FFE9F1F7" NavigationUIVisibility="Hidden">
-
-        </Frame>
+        <Frame x:Name="Home" Height="600" Width="769"  Grid.Column="1"  Background="#FFE9F1F7" NavigationUIVisibility="Hidden" HorizontalAlignment="Right"/>
         <StackPanel x:Name="stk" Background="#FF016DB2" HorizontalAlignment="Left" Height="600"  VerticalAlignment="Top" Width="230">
             <ToggleButton x:Name="Tg" Height="157" Width="231"  Background="White"  Foreground="{x:Null}" HorizontalAlignment="Left"  Style="{DynamicResource MaterialDesignFlatMidBgButton}" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="0,-1.7">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="220" Height="80" Margin="-15">
@@ -62,7 +60,7 @@
 
 
                         </BeginStoryboard>
-
+                        
 
 
                     </EventTrigger>
