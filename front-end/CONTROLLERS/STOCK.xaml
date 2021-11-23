@@ -6,30 +6,19 @@
       xmlns:local="clr-namespace:NEW_COBRA"
       mc:Ignorable="d" 
       Title="STOCK">
-
-
-    <Grid x:Name="grd" Grid.Column="1"  Grid.Row="1" Height="600" Width="769">
+    <Grid  Grid.Column="1"  Grid.Row="1" Height="600" Width="769">
         <Grid x:Name="HeadPage"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="769" Height="157" Background="White">
-
-
+            <Grid Background="#F6F7F8"  HorizontalAlignment="Left" Height="137" Margin="3,10,0,0" VerticalAlignment="Top" Width="762">
+                
+                <Label Background="{x:Null}" Foreground="#FF5789F5" FontSize="40" Content="STOCK" HorizontalAlignment="Left" Height="65" Margin="10,37,0,0" VerticalAlignment="Top" Width="245"/>
+                
+            </Grid>
         </Grid>
-        <DataGrid x:Name="Dtgd" ColumnWidth="3*" HorizontalAlignment="Left"  Height="446" VerticalAlignment="Bottom" Width="769"  Foreground="#DD000000" BorderBrush="#FFF7F7F7"  HorizontalContentAlignment="Center" Background="#FF016DB2" RowBackground="Azure" Visibility="Visible">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Background="Azure" Foreground="#FF016DB2" Content="Show" BorderBrush="#FF016DB2"></Button>
-                        </DataTemplate>
 
-
-                    </DataGridTemplateColumn.CellTemplate>
-
-
-
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-
-        </DataGrid>
+        <DataGrid x:Name="Dtgd" ColumnWidth="3*" HorizontalAlignment="Left"  Height="446" VerticalAlignment="Bottom" Width="769"  Foreground="#DD000000" BorderBrush="#FFF7F7F7"  HorizontalContentAlignment="Center" Background="#FF016DB2" RowBackground="Azure" Visibility="Visible"/>
 
     </Grid>
+
+
+
 </Page>

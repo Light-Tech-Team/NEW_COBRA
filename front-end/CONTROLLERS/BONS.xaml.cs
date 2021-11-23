@@ -25,5 +25,7 @@ namespace NEW_COBRA
           //  BonsTable.ItemsSource= null;
             InitializeComponent();
         }
+
+       
     }
 }

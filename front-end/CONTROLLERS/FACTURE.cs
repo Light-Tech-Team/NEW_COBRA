@@ -57,6 +57,11 @@ namespace NEW_COBRA
               return GetParent<TargetType>(VisualTreeHelper.GetParent(o));
           }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         /*  private async void Button_Click(object sender, RoutedEventArgs e)
           {   HeadPage.Children.RemoveAt(1);
               grd.Children.Clear();

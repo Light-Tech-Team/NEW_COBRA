@@ -58,12 +58,12 @@ namespace NEW_COBRA.DATA
                 Console.WriteLine(pro.CODE);
                 factureEntity.FactureElement.Add(new FactureElement()
                 { 
-                    IdFactureElement = J,
-                    Quantity = (byte)ResponseQuan.ResultAs<int>(),
+                    Id = J,
+                    QTE = (byte)ResponseQuan.ResultAs<int>(),
                     CodeProduct = pro.CODE,
                     NameProduct = pro.NAME,
-                    Price_buy = pro.PRICE_BUY,
-                    Amount = (byte)ResponseQuan.ResultAs<int>() * pro.PRICE_BUY
+                    PRICEUNIT = pro.PRICE_BUY,
+                    AMOUNT = (byte)ResponseQuan.ResultAs<int>() * pro.PRICE_BUY
                 }); 
 
                 J++;

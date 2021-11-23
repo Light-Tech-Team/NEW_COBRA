@@ -11,6 +11,18 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="hd"  TargetType="DataGridColumnHeader">
+                
+                <Setter Property="Background" Value="#FF016DB2"/>
+                <Setter Property="Height" Value="40"/>
+                
+                
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="Black"/>
+
+            </Style>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
