@@ -103,6 +103,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CONTROLLERS\addFacture.xaml.cs">
+      <DependentUpon>addFacture.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLLERS\BonsDetail.xaml.cs">
       <DependentUpon>BonsDetail.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
     <Compile Include="SERVICE\PanneService.cs" />
     <Compile Include="SERVICE\ProductService.cs" />
     <Compile Include="SERVICE\StockService.cs" />
+    <Page Include="CONTROLLERS\addFacture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CONTROLLERS\BONS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

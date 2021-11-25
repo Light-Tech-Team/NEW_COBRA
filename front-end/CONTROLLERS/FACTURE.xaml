@@ -10,7 +10,7 @@
         <Grid x:Name="HeadPage"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="769" Height="157" Background="White">
             <Grid Background="#F6F7F8"  HorizontalAlignment="Left" Height="137" Margin="3,10,0,0" VerticalAlignment="Top" Width="762">
                 <ListView Background="#FF016DB2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" 
-                          Margin="521,37,0,0" Height="65" SelectionChanged="ListView_SelectionChanged">
+                          Margin="521,37,0,0" Height="65" >
                     <StackPanel  Background="#FF016DB2" Orientation="Horizontal" Width="210" Height="41" 
                                  HorizontalAlignment="Left" VerticalAlignment="Top">
                         <materialDesign:PackIcon Kind="PaperAdd" Width="70" Height="40" />
@@ -18,33 +18,27 @@
                                    VerticalAlignment="Center" Margin="0,2" Width="140" />
                     </StackPanel>
                 </ListView>
-                <Label Background="{x:Null}" Foreground="#FF5789F5" FontSize="30" Content="Facture" 
-                       HorizontalAlignment="Left" 
-                       Height="65" Margin="10,37,0,0" VerticalAlignment="Top" Width="245"/>
+                <Label Content="Facture" Background="{x:Null}" Foreground="#FF5789F5" FontSize="30" 
+                       HorizontalAlignment="Left" Height="65" Margin="10,37,0,0" VerticalAlignment="Top"
+                       Width="245"/>
             </Grid>
         </Grid>
+        <Grid x:Name="BodyPage" Height="446" Width="769" VerticalAlignment="Bottom" HorizontalAlignment="Left"   >
+        
+                <DataGrid x:Name="Dtgd" ColumnWidth="3*"  Foreground="#DD000000"  BorderBrush="#FFF7F7F7" 
+                          HorizontalContentAlignment="Center" Background="#FF016DB2" RowBackground="Azure" Visibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Azure" Foreground="#FF016DB2" Content="Show" BorderBrush="#FF016DB2"
+                                            Click="Show"></Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
 
-        <DataGrid x:Name="Dtgd" ColumnWidth="3*" HorizontalAlignment="Left"  Height="446" 
-                  VerticalAlignment="Bottom" Width="769"  Foreground="#DD000000" 
-                  BorderBrush="#FFF7F7F7"  HorizontalContentAlignment="Center" 
-                  Background="#FF016DB2" RowBackground="Azure" Visibility="Visible">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Background="Azure" Foreground="#FF016DB2" Content="Show" BorderBrush="#FF016DB2"
-                                    Click="Show"></Button>
-                        </DataTemplate>
-
-
-                    </DataGridTemplateColumn.CellTemplate>
-
-
-
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-
-        </DataGrid>
-
+                </DataGrid>
+        </Grid>
     </Grid>
 </Page>

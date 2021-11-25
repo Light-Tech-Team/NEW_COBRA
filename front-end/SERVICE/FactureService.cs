@@ -29,7 +29,6 @@ namespace NEW_COBRA.SERVICE
         }
         public Task<FactureEntity> getInvoice( FirebaseClient firebaseClient, byte id)
         {
-
             return this.facturedata.getInvoice(  firebaseClient,  id);
         }
         public Task<List<FactureEntity>> getAllInvoice(FirebaseClient firebaseClient)
