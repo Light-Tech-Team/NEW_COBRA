@@ -1,9 +1,10 @@
-from flask_restful import Resource, marshal_with, fields
-from .src.args import prouct_put_args
+from flask_restful import Resource, marshal_with, abort
+from .src.args import prouct_put_args, product_update_args
 from .src.fields import product_resource_fields
-from models import db
-
+from extensions import db
+from models import Product
 class product(Resource):
+    
     @marshal_with(product_resource_fields)
     def post(self, product_id):
         args = prouct_put_args.parse_args()

@@ -1,8 +1,8 @@
-from flask_restful import Resource, marshal_with
-from .src.args import facture_product_put_args
+from flask_restful import Resource, marshal_with, abort
+from .src.args import facture_product_put_args, facture_product_update_args
 from .src.fields import facture_product_resource_fields
-from models import db
-
+from extensions import db
+from models import Facture_product
 
 class Facture_product_resource(Resource):
     @marshal_with(facture_product_resource_fields)
@@ -18,7 +18,7 @@ class Facture_product_resource(Resource):
     @marshal_with(facture_product_resource_fields)
     def post(self, facture_product_id):
         args = facture_product_put_args.parse_args()
-        facture_product = Facture_product(id = facture_product_id, facture_id=args['facture_id'], product_id=args['product_id'], quantite=args['quantite'], prix_unitaire=args['prix_unitaire'])
+        facture_product = Facture_product( facture_product_id, args)
         db.session.add(facture_product)
         db.session.commit()
         return facture_product, 201

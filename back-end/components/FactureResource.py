@@ -1,7 +1,10 @@
-from flask_restful import Resource, marshal_with, fields
+from flask_restful import Resource, marshal_with, abort
 from .src.args import facture_put_args, facture_update_args
 from .src.fields import facture_resource_fields
-from models import db
+from datetime import datetime
+
+from extensions import db
+from models import Facture
 
 
 class FactureResource(Resource):

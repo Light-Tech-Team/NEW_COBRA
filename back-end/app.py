@@ -1,8 +1,12 @@
 from models import db
-from flask import Flask
-from flask_restful import Resource, Api, reqparse, abort, fields, marshal_with
-from models import *
-from datetime import datetime
+from extensions import *
+
+
+db.init_app(app)
+
+with app.app_context():
+    #db.create_all()
+    pass
 
 
 from components.ProductFamilyResource import ProductFamilyResource
@@ -13,19 +17,6 @@ from components.Facture_product_resource import Facture_product_resource
 from components.Facture_product_all import Facture_product_all
 from components.Facture_products import Facture_products
 from components.FactureResource_all import FactureResource_all
-
-app = Flask(__name__)
-api = Api(app)
-
-app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cobra.db'
-db.init_app(app)
-
-with app.app_context():
-    #db.create_all()
-    pass
-
-
 
 
 
