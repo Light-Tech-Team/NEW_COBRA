@@ -1,6 +1,7 @@
 from flask_restful import Resource, marshal_with
 from .src.fields import facture_product_resource_fields
-from models import db
+from extensions import db
+from models import Facture_product
 
 
 

@@ -210,4 +210,11 @@ response = requests.get(BASE_URL + "/product/find_by_family/TV")
 print(response.json())
 
 
+fac_prod=     {
+        'facture_id': 0,
+        'product_id': 0,
+        'quantite': 3,
+        'prix_unitaire': 20
+    }
 
+response = requests.post(BASE_URL + 'facture_product/11', json=fac_prod)

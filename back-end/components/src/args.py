@@ -11,7 +11,7 @@ prouct_put_args.add_argument('image', type=str, required=True, help='Image manqu
 prouct_put_args.add_argument('prouct_family_id', type=int, required=True, help='Id famille manquant')
 
 product_update_args = reqparse.RequestParser()
-product_update_args.add_argument('nom', type=str, required=False, help='Nom manquant')
+product_update_args.add_argument('gnom', type=str, required=False, help='Nom manquant')
 product_update_args.add_argument('prix', type=float, required=False, help='Prix manquant')
 product_update_args.add_argument('description', type=str, required=False, help='Description manquante')
 product_update_args.add_argument('image', type=str, required=False, help='Image manquante')

@@ -35,8 +35,17 @@ namespace NEW_COBRA
             
             InitializeComponent();
             this.firebaseClient = new FirebaseClient(firebaseConfig);
+<<<<<<< HEAD
             this.productService = new ProductService(firebaseClient);
+=======
+
+            
+>>>>>>> 54260acee92ddbae86c2a20a4c24b58a554ea543
         }
+
+       
+
+
         private void Call(object sender, RoutedEventArgs e)
         {
             string S = (sender as ListViewItem).Name;
@@ -62,7 +71,7 @@ namespace NEW_COBRA
                     break;
 
             }
-
+           
 
 
         }
