@@ -34,7 +34,13 @@ namespace NEW_COBRA
         {
             InitializeComponent();
             this.firebaseClient = new FirebaseClient(firebaseConfig);
+
+            
         }
+
+       
+
+
         private void Call(object sender, RoutedEventArgs e)
         {
             string S = (sender as ListViewItem).Name;
@@ -60,7 +66,7 @@ namespace NEW_COBRA
                     break;
 
             }
-
+           
 
 
         }

@@ -23,5 +23,16 @@ namespace NEW_COBRA.CONTROLLERS
         {
             InitializeComponent();
         }
+       /* void ShowbOn(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            var row = GetParent<DataGridRow>((Button)sender);
+            var index = BonTable.Items.IndexOf(row.Item);
+
+            BonsDetail factureDetail = new BonsDetail();
+            BonsDetail.ShowDialog();
+
+        }*/
     }
 }
