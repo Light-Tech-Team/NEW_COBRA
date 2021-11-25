@@ -21,7 +21,8 @@ class FactureResource(Resource):
     def post(self, facture_id):
         print(facture_id)
         args = facture_put_args.parse_args()
-        facture = Facture(id = facture_id, date=datetime.strptime(args['date'], '%Y-%d-%m'), montant=args['montant'], client_id=args['client_id'])
+        args['date'] =datetime.strptime(args['date'], '%Y-%d-%m')
+        facture = Facture(id = facture_id, **args)
         db.session.add(facture)
         db.session.commit()
         return facture, 201
@@ -35,8 +36,8 @@ class FactureResource(Resource):
                 facture.date = datetime.strptime(args['date'], '%Y-%d-%m')
             if args['montant']:
                 facture.montant = args['montant']
-            if args['client_id']:
-                facture.client_id = args['client_id']
+            #if args['client_id']:
+            #    facture.client_id = args['client_id']
             db.session.commit()
             return facture, 201
         else:
