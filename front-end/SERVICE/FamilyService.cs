@@ -28,9 +28,11 @@ namespace NEW_COBRA.SERVICE
         {
             return this.familyData.getFamily(workbook, id);
         }
-        public Task<List<String>> getAllFamily(FirebaseClient firebaseClient)
+        public List<String> getAllFamily(FirebaseClient firebaseClient)
         {
-            return this.familyData.getAllFamily(firebaseClient);
+            Console.WriteLine(this.familyData.getAllFamily(firebaseClient).ToString());
+
+            return this.familyData.getAllFamily(firebaseClient).Result;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace NEW_COBRA.DATA
         private async void getFirebaseProduct(FirebaseClient firebaseClient)
         {   
             FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
+            Console.WriteLine("xxxxxxxxxxxxxxxxx");
             this.product = Response.ResultAs<List<Product>>() ; 
         }
 
@@ -39,6 +40,7 @@ namespace NEW_COBRA.DATA
         }
         public List<Product> getProductOfFamily(byte ID_FAMILY)
         { List<Product> product = new List<Product>();
+         
           for(byte o = 0; o<this.product.Count; o++)
                     if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
                         product.Add(this.product.ElementAt<Product>(o));

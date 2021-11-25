@@ -29,7 +29,6 @@ namespace NEW_COBRA.DATA
             {   if(   ((byte)worksheet.Cells[I, 1].Value2)==id)    
               { 
                    return (String)worksheet.Cells[I, 2].Value2;
-                
                 }
                 I++;
             }
@@ -40,13 +39,11 @@ namespace NEW_COBRA.DATA
 
         public async Task<List<String> > getAllFamily( FirebaseClient firebaseClient)
         {
-
-            var Response = await firebaseClient.GetAsync("FAMILY");
+            var Response = await firebaseClient.GetAsync("FAMILY").ConfigureAwait(false);
             String[] STR= Response.ResultAs<String[]>();
-           
-             foreach (String S in STR)
+       
+            foreach (String S in STR)
                stri.Add(S);
-                   
 
             return stri;
         }

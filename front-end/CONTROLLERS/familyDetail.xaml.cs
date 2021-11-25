@@ -51,6 +51,7 @@ namespace NEW_COBRA.CONTROLLERS
                 stackPanel.Orientation = Orientation.Horizontal;
                 Label label = new Label();
                 label.Content = S;
+                label.Foreground=Brushes.Black;
                 TextBox textBox = new TextBox();
                 textBox.Name = "text" + i;
 
