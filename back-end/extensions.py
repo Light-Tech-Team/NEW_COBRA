@@ -8,4 +8,4 @@ app = Flask(__name__)
 api = Api(app)
 
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cobra.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cobra_database.db'
