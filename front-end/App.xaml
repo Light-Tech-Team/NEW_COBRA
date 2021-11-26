@@ -12,8 +12,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="hd"  TargetType="DataGridColumnHeader">
-                
-                <Setter Property="Background" Value="#FF016DB2"/>
+
+                <Setter Property="Background" Value="#FFD6DFF0"/>
                 <Setter Property="Height" Value="40"/>
                 
                 
