@@ -35,12 +35,7 @@ namespace NEW_COBRA
             
             InitializeComponent();
             this.firebaseClient = new FirebaseClient(firebaseConfig);
-
             this.productService = new ProductService(firebaseClient);
-
-
-            
-
         }
 
        

@@ -217,4 +217,4 @@ fac_prod=     {
         'prix_unitaire': 20
     }
 
-response = requests.post(BASE_URL + 'facture_product/11', json=fac_prod)
+response = requests.post(BASE_URL + 'facture_product/14', json=fac_prod)

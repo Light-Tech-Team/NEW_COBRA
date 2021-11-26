@@ -2,12 +2,12 @@ from flask_restful import Resource, marshal_with, abort
 from .src.args import product_family_update_args
 from .src.fields import product_family_resource_fields
 from extensions import db
-from models import Prouct_family
+from models import Product_family
 
 class ProductFamilyResource(Resource):
     @marshal_with(product_family_resource_fields)
     def get(self, family_id):
-        product_family = Prouct_family.query.filter_by(id=family_id).first()
+        product_family = Product_family.query.filter_by(id=family_id).first()
         return product_family
 
 
@@ -18,10 +18,10 @@ class ProductFamilyResource(Resource):
     @marshal_with(product_family_resource_fields)
     def put(self, family_id):
         args = product_family_update_args.parse_args()
-        result = Prouct_family.query.filter_by(id=family_id).first()
+        result = Product_family.query.filter_by(id=family_id).first()
         if result:
             abort(404, message="Cette famille de produit existe déjà")
-        product_family = Prouct_family(id = family_id, nom=args['nom'], description=args['description'])
+        product_family = Product_family(id = family_id, **args)
         db.session.add(product_family)
         db.session.commit()
         return product_family, 201
@@ -30,11 +30,11 @@ class ProductFamilyResource(Resource):
     @marshal_with(product_family_resource_fields)
     def patch(self, family_id):
         args = product_family_update_args.parse_args()
-        product_family = Prouct_family.query.filter_by(id=family_id).first()
+        product_family = Product_family.query.filter_by(id=family_id).first()
         if args['nom']:
             product_family.nom = args['nom']
-        if args['description']:
-            product_family.description = args['description']
+        #if args['description']:
+        #    product_family.description = args['description']
             db.session.commit()
             return product_family, 201
         else:
@@ -42,7 +42,7 @@ class ProductFamilyResource(Resource):
 
 
     def delete(self, family_id):
-        product_family = Prouct_family.query.filter_by(id=family_id).first()
+        product_family = Product_family.query.filter_by(id=family_id).first()
         db.session.delete(product_family)
         db.session.commit()
         return '', 204

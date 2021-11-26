@@ -5,8 +5,8 @@ class Facture(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime)
     montant = db.Column(db.Float)
-    client_id = db.Column(db.Integer, db.ForeignKey('client.id'))
-    client = db.relationship('Client', backref=db.backref('factures', lazy='select'))
+    #client_id = db.Column(db.Integer, db.ForeignKey('client.id'))
+    #client = db.relationship('Client', backref=db.backref('factures', lazy='select'))
 
 
 
@@ -14,7 +14,7 @@ class Facture(db.Model):
         return '<Facture %r>' % self.id
 
 
-class Client(db.Model):
+'''class Client(db.Model):
     __tablename__ = 'client'
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(255))
@@ -27,7 +27,9 @@ class Client(db.Model):
     email = db.Column(db.String(255))
 
     def __repr__(self):
-        return '<Client %r>' % self.id
+        return '<Client %r>' % self.id'''
+
+
 
 
 class Facture_product(db.Model):
@@ -38,17 +40,17 @@ class Facture_product(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     product = db.relationship('Product', backref=db.backref('facture_products', lazy='select'))
     quantite = db.Column(db.Integer)
-    prix_unitaire = db.Column(db.Float)
+    montant = db.Column(db.Float)
 
     def __repr__(self):
         return '<Facture_product %r>' % self.id
 
 
-class Prouct_family(db.Model):
-    __tablename__ = 'prouct_family'
+class Product_family(db.Model):
+    __tablename__ = 'product_family'
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(255))
-    description = db.Column(db.String(255))
+    #description = db.Column(db.String(255))
     products = db.relationship('Product', backref=db.backref('prouct_family', lazy='select'))
     def __repr__(self):
         return '<Prouct_family %r>' % self.id
@@ -57,10 +59,12 @@ class Product(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(255))
-    prix = db.Column(db.Float)
-    description = db.Column(db.String(255))
-    image = db.Column(db.String(255))
-    prouct_family_id = db.Column(db.Integer, db.ForeignKey('prouct_family.id'))
+    code = db.Column(db.String(255))
+    buy_prix = db.Column(db.Float)
+    sell_prix = db.Column(db.Float)
+    #description = db.Column(db.String(255))
+    #image = db.Column(db.String(255))
+    product_family_id = db.Column(db.Integer, db.ForeignKey('product_family.id'))
 
 
     def __repr__(self):

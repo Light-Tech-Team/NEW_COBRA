@@ -22,24 +22,49 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class addFacture : UserControl
     {
-        private FamilyService familyService;
+        private FamilyService familyService=new FamilyService();
         private FirebaseClient firebaseClient;
+        private ProductService productService;
 
-        public addFacture()
+        public addFacture(FirebaseClient firebaseClient)
         {
+            this.productService = new ProductService(firebaseClient);
+            this.firebaseClient = firebaseClient;
             InitializeComponent();
+            listFamily.Children.Add(this.getListFamily());
         }
 
         private void AddFamily(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("test0");
             this.familyService.addFamily(this.firebaseClient);
-
         }
 
         private void Next(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("test1");
+            
+        }
+        private StackPanel getListFamily()
+        {
+            StackPanel ST = new StackPanel();
+            byte i = 0;
+            List<string> vs = this.familyService.getAllFamily(this.firebaseClient);
+            foreach (string S in vs)
+            {
+                List<Product> pr = this.productService.getProductOfFamily(i);
+                ST.Children.Add(new familyDetail(S, pr));
+                i++;
+            }
+            return ST;
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            GetParent<Frame>((Button)sender).Content = new FACTURE(this.firebaseClient);
+        }
+        private TargetType GetParent<TargetType>(DependencyObject o)
+            where TargetType : DependencyObject
+        {
+            return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
         }
     }
 }

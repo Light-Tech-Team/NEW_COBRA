@@ -18,7 +18,7 @@ class Facture_product_resource(Resource):
     @marshal_with(facture_product_resource_fields)
     def post(self, facture_product_id):
         args = facture_product_put_args.parse_args()
-        facture_product = Facture_product( facture_product_id, args)
+        facture_product = Facture_product( fid = facture_product_id, **args)
         db.session.add(facture_product)
         db.session.commit()
         return facture_product, 201
@@ -34,8 +34,8 @@ class Facture_product_resource(Resource):
                 facture_product.product_id = args['product_id']
             if args['quantite']:
                 facture_product.quantite = args['quantite']
-            if args['prix_unitaire']:
-                facture_product.prix_unitaire = args['prix_unitaire']
+            if args['montant']:
+                facture_product.montant = args['montant']
             db.session.commit()
             return facture_product, 201
         else:

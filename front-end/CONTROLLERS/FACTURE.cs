@@ -43,11 +43,18 @@ namespace NEW_COBRA
             return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HeadPage.Children.RemoveAt(1);
+            BodyPage.Children.Clear();
+            BodyPage.Children.Add(new addFacture(this.firebaseClient));
+        }
 
 
 
 
-        
+
+
 
 
 
@@ -56,19 +63,11 @@ namespace NEW_COBRA
 
 
         /*  private async void Button_Click(object sender, RoutedEventArgs e)
-          {   HeadPage.Children.RemoveAt(1);
-              grd.Children.Clear();
-              grd.Children.Add
+          {  
+              
+              grd
              
-              StackPanel ST = new StackPanel();
-              byte i = 0;
-              foreach (string S in await this.familyService.getAllFamily(this.firebaseClient))
-              { List<Product> pr = this.productService.getProductOfFamily(firebaseClient, i).Result;
-
-                  ST.Children.Add(new familyDetail(S, pr));
-                  i++;
-              }
-
+             
               stack.Children.Add(ST);
 
               BodyPage.Children.Add(stack);
