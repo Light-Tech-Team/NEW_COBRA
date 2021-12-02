@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NEW_COBRA.CONTROLLERS"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" BorderBrush="White" BorderThickness="0,5,0,0">
     <Grid>
-        <Button x:Name="addFamily" Content="add Family"  Click="AddFamily" HorizontalAlignment="Left" Margin="327,30,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="1.009,-0.4"/>
-        <Button x:Name="next" Content="Next" Click="Next" HorizontalAlignment="Left" Margin="595,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <StackPanel x:Name="listFamily"  HorizontalAlignment="Left" Height="346" Margin="173,94,0,0" VerticalAlignment="Top" Width="419"/>
-        <Button Content="Back" Click="Back" HorizontalAlignment="Left" Margin="93,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="addFamily" Background="#FF016DB2" Content="add Family"  Click="AddFamily" HorizontalAlignment="Left" Margin="327,30,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="1.009,-0.4" BorderBrush="{x:Null}"/>
+        <Button x:Name="next" Background="#FF016DB2" Content="Next" Click="Next" HorizontalAlignment="Left" Margin="595,30,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}"/>
+        <StackPanel Background="Azure"   x:Name="listFamily"  HorizontalAlignment="Left" Height="346" Margin="171,94,0,0" VerticalAlignment="Top" Width="419"/>
+        <Button  Background="#FF016DB2" Content="Back" Click="Back" HorizontalAlignment="Left" Margin="93,30,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}"/>
+
+        <ScrollViewer Width="18" Height="300" Margin="782,105,0,40"  ></ScrollViewer>
+
 
 
 

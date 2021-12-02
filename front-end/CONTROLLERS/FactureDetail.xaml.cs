@@ -38,9 +38,7 @@ namespace NEW_COBRA.CONTROLLERS
             catch(Exception e)
             {
                
-                    this.factureEntity = this.factureService.getInvoice(firebaseClient, I).Result;
-                    factureTable.ItemsSource = this.factureEntity.FactureElement;
-                    DateTime Date = this.factureEntity.date;
+                    
                 
             }
 

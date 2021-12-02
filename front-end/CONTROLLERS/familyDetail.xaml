@@ -7,12 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Name="fami"
+             
              >
-           
-    <Grid>
-        <StackPanel Orientation="Vertical">
-        <Button x:Name= "ryra" Click="view_Click"> </Button>
-        <StackPanel x:Name= "ryry" Visibility="Collapsed"></StackPanel>
+
+    <Grid  Background="Azure">
+        <StackPanel Background="Azure" Orientation="Vertical">
+            <Button Foreground="#FFD6DFF0"  Background="#FF016DB2" x:Name= "ryra" Click="view_Click" BorderBrush="{x:Null}"> </Button>
+        <StackPanel Background="Azure" x:Name= "ryry" Visibility="Collapsed"></StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

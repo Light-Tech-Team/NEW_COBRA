@@ -11,6 +11,7 @@
         Width="816"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
+        Icon="C:\Users\Basbas\Desktop\Nouveau dossier\NEW_COBRA\front-end/cobra (3).ico"
         >
     <Grid Margin="0,0,0,-1" Background="#FF016DB2">
 
@@ -31,16 +32,16 @@
         <DataGrid x:Name="factureTable" ColumnWidth="Auto" FontSize="15" ColumnHeaderStyle="{StaticResource ResourceKey=hd}" 
                   HorizontalAlignment="Left"  Height="298" VerticalAlignment="Bottom" Width="739"  Foreground="#DD000000" 
                   BorderBrush="#FFF7F7F7"  HorizontalContentAlignment="Center" Background="#FFF3F3F3" 
-                  RowBackground="Azure" Visibility="Visible" Margin="38,0,0,186"/>
+                  RowBackground="#F6F7F8" Visibility="Visible" Margin="38,0,0,186"/>
         <Border Background="#FFE9F1F7"  HorizontalAlignment="Left" Height="90" Margin="520,0,0,0" VerticalAlignment="Top" Width="290">
             <StackPanel HorizontalAlignment="Left" Height="70" Margin="46,8,0,0" VerticalAlignment="Top" Width="244">
                 <StackPanel  Orientation="Horizontal" Height="35">
                     <Label Width="104" Content="Facture n=°" Foreground="#FF016DB2" FontSize="18"/>
-                    <TextBlock Background="Azure" Width="142"/>
+                    <TextBlock Width="142"/>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" Height="35">
                     <Label Width="104" Content="Fournisseur" Foreground="#FF016DB2" FontSize="18"/>
-                    <TextBlock Background="Azure" Width="141"/>
+                    <TextBlock Width="141"/>
                 </StackPanel>
 
             </StackPanel>
