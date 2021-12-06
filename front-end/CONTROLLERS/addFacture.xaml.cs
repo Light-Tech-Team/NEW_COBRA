@@ -24,12 +24,13 @@ namespace NEW_COBRA.CONTROLLERS
     {
         private byte i = 0;
         private FamilyService familyService=new FamilyService();
+        private ProductService productService;
         public class zaza
         {
             public string namefamily { get; set; }
         }
         public List<zaza> fmname { get; set; }
-        private FamilyService familyService = new FamilyService();
+        
         private FirebaseClient firebaseClient;
         public addFacture(FirebaseClient firebaseClient)
         {
@@ -66,30 +67,23 @@ namespace NEW_COBRA.CONTROLLERS
         {
             return o == null || o is T ? (T)o : GetParent<T>(VisualTreeHelper.GetParent(o));
         }
-    }
-}
-
-        }
         private void getListFamily()
         {
-                byte i = 0;
-                foreach (string S in this.familyService.getAllFamily(this.firebaseClient))
-                {
-                   this.fmname.Add(new zaza(){namefamily = (i++) +"  "+ S }) ;
+            byte i = 0;
+            foreach (string S in this.familyService.getAllFamily(this.firebaseClient))
+            {
+                this.fmname.Add(new zaza() { namefamily = (i++) + "  " + S });
                 //byte g = (byte)Int16.Parse(chk.Name.Split('x')[1]);
-                }
-
-        }
-            public void Back(object sender, RoutedEventArgs e)
-            {
-                GetParent<Frame>((Button)sender).Content = new FACTURE(this.firebaseClient);
-            }
-            public TargetType GetParent<TargetType>(DependencyObject o)
-                where TargetType : DependencyObject
-            {
-                return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
             }
 
         }
+       
+       
+
     }
+
+
+}
+    
+
 
