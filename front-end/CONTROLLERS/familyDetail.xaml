@@ -10,10 +10,29 @@
              
              >
 
+<<<<<<< HEAD
     <Grid  Background="Azure">
         <StackPanel Background="Azure" Orientation="Vertical">
             <Button Foreground="#FFD6DFF0"  Background="#FF016DB2" x:Name= "ryra" Click="view_Click" BorderBrush="{x:Null}"> </Button>
         <StackPanel Background="Azure" x:Name= "ryry" Visibility="Collapsed"></StackPanel>
+=======
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label x:Name= "ryra" Background="#FF016DB2" Foreground="Black"></Label>
+
+            <ListView Height="255" Margin="10,0" ItemsSource="{Binding me}">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal">
+                            <Label  Content="{Binding Na}" Foreground="Black" Background="Aqua"  HorizontalAlignment="Left"></Label>
+                            <TextBox Width="25"  Text="0" Foreground="Black"  HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+>>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
         </StackPanel>
     </Grid>
 </UserControl>

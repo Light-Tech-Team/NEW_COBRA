@@ -20,52 +20,42 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class familyDetail : UserControl
     {
-
-        string[] fam;
+        public List<ProductList>  me { get;set; }
+        string[] nameProduct;
         string nbtn;
-        
-
-       
+      
          public familyDetail(string nbtn, List<Product> _prot) 
         {
-            this.fam = new string[_prot.Count];
+            me = new List<ProductList>();
+            this.nameProduct = new string[_prot.Count];
             this.nbtn = nbtn;
             for (int i = 0; i < _prot.Count; i++)
             {
-                this.fam[i] = _prot.ElementAt<Product>(i).NAME;
-                Console.WriteLine(this.fam[i]);
+                this.nameProduct[i] = _prot.ElementAt<Product>(i).NAME ;
             }
             InitializeComponent();
             Lip();
-         
+            this.DataContext = this;
         }
        
         private void Lip()
         {   ryra.Content = this.nbtn ;
-            ryry.Orientation = Orientation.Vertical;
+            
            
             int i = 0;
-            foreach (string S in this.fam)
+            foreach (string S in this.nameProduct)
             {
-                StackPanel stackPanel = new StackPanel();
-                stackPanel.Orientation = Orientation.Horizontal;
-                Label label = new Label();
-                label.Content = S;
-                label.Foreground=Brushes.Black;
-                TextBox textBox = new TextBox();
-                textBox.Name = "text" + i;
-
-                stackPanel.Children.Add(label);
-                stackPanel.Children.Add(textBox);
-                ryry.Children.Add(stackPanel);
+                me.Add(new ProductList() { Na = S, Index = i });   
+                i++;
             }
-
+           
+        }
+        public class ProductList
+        {
+            public int Index { get; set; }
+            public string Na { get; set; }
         }
 
-        private void view_Click(object sender, RoutedEventArgs e)
-        {if(ryry.Visibility==Visibility.Collapsed)
-             ryry.Visibility = Visibility.Visible; 
-        else ryry.Visibility = Visibility.Collapsed;
-        }
+
     }
 }

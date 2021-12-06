@@ -13,17 +13,17 @@ product_put_args.add_argument('code', type=str, required=True, help='Code manqua
 product_put_args.add_argument('sell_prix', type=float, required=True, help='Prix manquant')
 #product_put_args.add_argument('description', type=str, required=True, help='Description manquante')
 #product_put_args.add_argument('image', type=str, required=True, help='Image manquante')
-product_put_args.add_argument('prouct_family_id', type=int, required=True, help='Id famille manquant')
+product_put_args.add_argument('product_family_id', type=int, required=True, help='Id famille manquant')
 
 product_update_args = reqparse.RequestParser()
-product_update_args.add_argument('gnom', type=str, required=False, help='Nom manquant')
+product_update_args.add_argument('nom', type=str, required=False, help='Nom manquant')
 product_update_args.add_argument('buy_prix', type=float, required=False, help='Prix manquant')
 product_update_args.add_argument('code', type=str, required=False, help='Code manquant')
 product_update_args.add_argument('sell_prix', type=float, required=False, help='Prix manquant')
 
 #product_update_args.add_argument('description', type=str, required=False, help='Description manquante')
 #product_update_args.add_argument('image', type=str, required=False, help='Image manquante')
-product_update_args.add_argument('prouct_family_id', type=int, required=False, help='Id famille manquant')
+product_update_args.add_argument('product_family_id', type=int, required=False, help='Id famille manquant')
 
 ################################################################################################
 

@@ -52,29 +52,5 @@ namespace NEW_COBRA
             BodyPage.Children.Add(new addFacture(this.firebaseClient));
             
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*  private async void Button_Click(object sender, RoutedEventArgs e)
-          {  
-              
-              grd
-             
-             
-              stack.Children.Add(ST);
-
-              BodyPage.Children.Add(stack);
-
-          }*/
     }
 }
