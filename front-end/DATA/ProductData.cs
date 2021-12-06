@@ -38,8 +38,8 @@ namespace NEW_COBRA.DATA
                 } while (this.product == null);
                 Console.WriteLine(this.product);
                 Console.WriteLine("xxxxxxxxxxxxxxxxx");
-                response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
-                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+                //response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
+               // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                
             
         }
