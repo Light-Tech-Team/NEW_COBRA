@@ -26,13 +26,22 @@ namespace NEW_COBRA.CONTROLLERS
     {
         FactureService factureService = new FactureService(); 
         FactureEntity factureEntity = new FactureEntity();
-        public  FactureDetail( FirebaseClient firebaseClient, byte I)
+        public FactureDetail(FirebaseClient firebaseClient, byte I)
         {
-            
+
             InitializeComponent();
-            this.factureEntity = this.factureService.getInvoice( firebaseClient, I).Result;
+            try { 
+            this.factureEntity = this.factureService.getInvoice(firebaseClient, I).Result;
             factureTable.ItemsSource = this.factureEntity.FactureElement;
-            DateTime Date= this.factureEntity.date;
+            DateTime Date = this.factureEntity.date;
+        }
+            catch(Exception e)
+            {
+               
+                    
+                
+            }
+
            /* id.Text = (I + 1).ToString();
             totalAmount.Text = this.factureEntity.totalAmount.ToString() ;
             TVA.Text = (this.factureEntity.totalAmount * 0.19).ToString();

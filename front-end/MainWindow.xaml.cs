@@ -22,6 +22,9 @@ namespace NEW_COBRA
 
     public partial class MainWindow : Window
     {
+        
+        
+
         FirebaseConfig firebaseConfig = new FirebaseConfig
         {
             AuthSecret = "J4XSSr91u3cDkBAzbyISbBwVcUC9opLSt6TcJuBx",
@@ -34,9 +37,18 @@ namespace NEW_COBRA
         {
             
             InitializeComponent();
+            
+            try { 
             this.firebaseClient = new FirebaseClient(firebaseConfig);
             this.productService = new ProductService(firebaseClient);
-        }
+                }
+            catch(Exception e)
+            {
+
+
+            }
+            
+    }
 
        
 
@@ -48,6 +60,7 @@ namespace NEW_COBRA
             {
                 case "Facture":
                     Home.Content = new FACTURE(this.firebaseClient);
+                    
                     break;
                 case "Bon":
                     Home.Content = new BONS();
@@ -70,5 +83,6 @@ namespace NEW_COBRA
 
 
         }
+       
     }
 }

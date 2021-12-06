@@ -19,9 +19,16 @@ namespace NEW_COBRA.DATA
         HttpResponseMessage response;
         public ProductData(FirebaseClient firebaseClient)
         {
-            this.getFirebaseProduct(firebaseClient);
+            try
+            {
+                this.getFirebaseProduct(firebaseClient);
+            }
+            catch (Exception e) {
+                this.getFirebaseProduct(firebaseClient);
+
+            }
         }
-       
+
         private async void getFirebaseProduct(FirebaseClient firebaseClient)
         {
                 do
@@ -31,8 +38,8 @@ namespace NEW_COBRA.DATA
                 } while (this.product == null);
                 Console.WriteLine(this.product);
                 Console.WriteLine("xxxxxxxxxxxxxxxxx");
-                response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
-                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+                //response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
+               // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                
             
         }
@@ -45,10 +52,17 @@ namespace NEW_COBRA.DATA
         {
 
         }
-        public Product getProduct( byte id)
-        {   
-            return  this.product.ElementAt<Product>(id);
+        public Product getProduct(byte id)
+        {
+            try
+            {
+                return this.product.ElementAt<Product>(id);
+            }
+            catch (Exception e)
+            { return this.product.ElementAt<Product>(id); }
         }
+
+         
         public List<Product> getProductOfFamily(byte ID_FAMILY)
         {
             try

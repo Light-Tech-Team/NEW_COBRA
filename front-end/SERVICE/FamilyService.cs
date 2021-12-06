@@ -26,10 +26,19 @@ namespace NEW_COBRA.SERVICE
         }
         public string getFamily(Workbook workbook, byte id)
         {
-            return this.familyData.getFamily(workbook, id);
+            try
+            {
+                return this.familyData.getFamily(workbook, id);
+            }
+            catch(Exception e)
+            {
+                return this.familyData.getFamily(workbook, id);
+            }
         }
         public List<String> getAllFamily(FirebaseClient firebaseClient)
         {
+            Console.WriteLine(this.familyData.getAllFamily(firebaseClient).ToString());
+
             return this.familyData.getAllFamily(firebaseClient).Result;
         }
     }

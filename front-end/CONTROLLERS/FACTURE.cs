@@ -47,7 +47,10 @@ namespace NEW_COBRA
         {
             HeadPage.Children.RemoveAt(1);
             BodyPage.Children.Clear();
+            BrushConverter bc = new BrushConverter();
+            BodyPage.Background = (Brush)bc.ConvertFrom("#F6F7F8");
             BodyPage.Children.Add(new addFacture(this.firebaseClient));
+            
         }
     }
 }

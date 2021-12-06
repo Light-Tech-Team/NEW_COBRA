@@ -24,17 +24,26 @@ namespace NEW_COBRA.CONTROLLERS
     {
         private int i = -1;
         private FamilyService familyService=new FamilyService();
-        private FirebaseClient firebaseClient;
         private ProductService productService;
-
+        public class zaza
+        {
+            public string namefamily { get; set; }
+        }
+        public List<zaza> fmname { get; set; }
+        
+        private FirebaseClient firebaseClient;
         public addFacture(FirebaseClient firebaseClient)
         {
+            this.fmname = new List<zaza>();
            
             this.productService = new ProductService(firebaseClient);
             this.firebaseClient = firebaseClient;
             InitializeComponent();
+            this.getListFamily();
+            this.DataContext = this;
            
         }
+
         private void AddFamily(object sender, RoutedEventArgs e)
         {
             this.familyService.addFamily(this.firebaseClient);
@@ -63,5 +72,23 @@ namespace NEW_COBRA.CONTROLLERS
         {
             return o == null || o is T ? (T)o : GetParent<T>(VisualTreeHelper.GetParent(o));
         }
+        private void getListFamily()
+        {
+            byte i = 0;
+            foreach (string S in this.familyService.getAllFamily(this.firebaseClient))
+            {
+                this.fmname.Add(new zaza() { namefamily = (i++) + "  " + S });
+                //byte g = (byte)Int16.Parse(chk.Name.Split('x')[1]);
+            }
+
+        }
+       
+       
+
     }
+
+
 }
+    
+
+
