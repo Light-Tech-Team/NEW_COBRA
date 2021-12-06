@@ -183,13 +183,13 @@ for i in range(len(product_families)):
 
 
 for i in range(len(Factures)):
-    response = requests.post(BASE_URL + 'facture/'+str(i), json=Factures[i])
+    #response = requests.post(BASE_URL + 'facture/'+str(i), json=Factures[i])
     #print(i)
     response = requests.get(BASE_URL + 'facture/'+str(i))
     print(response.json())
 
 for i in range(len(Facture_products)):
-    response = requests.post(BASE_URL + 'facture_product/'+str(i), json=Facture_products[i])
+    #response = requests.post(BASE_URL + 'facture_product/'+str(i), json=Facture_products[i])
     #print(i)
     response = requests.get(BASE_URL + 'facture_product/'+str(i))
     print(response.json())
