@@ -22,49 +22,41 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class addFacture : UserControl
     {
+        private byte i = 0;
         private FamilyService familyService=new FamilyService();
         private FirebaseClient firebaseClient;
         private ProductService productService;
 
         public addFacture(FirebaseClient firebaseClient)
         {
+           
             this.productService = new ProductService(firebaseClient);
             this.firebaseClient = firebaseClient;
             InitializeComponent();
-            listFamily.Children.Add(this.getListFamily());
+           
         }
-
         private void AddFamily(object sender, RoutedEventArgs e)
         {
             this.familyService.addFamily(this.firebaseClient);
         }
-
         private void Next(object sender, RoutedEventArgs e)
         {
-            
+            listFamily.Children.Clear();
+            listFamily.Children.Add(new familyDetail(this.familyService.getAllFamily(this.firebaseClient).ElementAt<string>(this.i),
+                                                     this.productService.getProductOfFamily(this.i++))) ; 
         }
-        private StackPanel getListFamily()
-        {
-            StackPanel ST = new StackPanel();
-            byte i = 0;
-            List<string> vs = this.familyService.getAllFamily(this.firebaseClient);
-            foreach (string S in vs)
-            {
-                List<Product> pr = this.productService.getProductOfFamily(i);
-                ST.Children.Add(new familyDetail(S, pr));
-                i++;
-            }
-            return ST;
-        }
-
+      
         private void Back(object sender, RoutedEventArgs e)
-        {
+        {   if(this.i==0)
             GetParent<Frame>((Button)sender).Content = new FACTURE(this.firebaseClient);
+            listFamily.Children.Clear();
+            listFamily.Children.Add(new familyDetail(this.familyService.getAllFamily(this.firebaseClient).ElementAt<string>(--this.i),
+                                                     this.productService.getProductOfFamily(this.i)));
         }
-        private TargetType GetParent<TargetType>(DependencyObject o)
-            where TargetType : DependencyObject
+        private T GetParent<T>(DependencyObject o)
+            where T : DependencyObject
         {
-            return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
+            return o == null || o is T ? (T)o : GetParent<T>(VisualTreeHelper.GetParent(o));
         }
     }
 }

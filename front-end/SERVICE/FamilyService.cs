@@ -30,8 +30,6 @@ namespace NEW_COBRA.SERVICE
         }
         public List<String> getAllFamily(FirebaseClient firebaseClient)
         {
-            Console.WriteLine(this.familyData.getAllFamily(firebaseClient).ToString());
-
             return this.familyData.getAllFamily(firebaseClient).Result;
         }
     }

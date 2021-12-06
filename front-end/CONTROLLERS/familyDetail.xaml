@@ -8,11 +8,23 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Name="fami"
              >
-           
+
     <Grid>
         <StackPanel Orientation="Vertical">
-        <Button x:Name= "ryra" Click="view_Click"> </Button>
-        <StackPanel x:Name= "ryry" Visibility="Collapsed"></StackPanel>
+            <Label x:Name= "ryra" Background="#FF016DB2" Foreground="Black"></Label>
+
+            <ListView Height="255" Margin="10,0" ItemsSource="{Binding me}">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal">
+                            <Label  Content="{Binding Na}" Foreground="Black" Background="Aqua"  HorizontalAlignment="Left"></Label>
+                            <TextBox Width="25"  Text="0" Foreground="Black"  HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
         </StackPanel>
     </Grid>
 </UserControl>

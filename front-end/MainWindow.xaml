@@ -12,9 +12,7 @@
         Width="1000"
         ResizeMode="NoResize"
         WindowStyle="None"
-        WindowStartupLocation="CenterScreen"
-       
-        >
+        WindowStartupLocation="CenterScreen">
     <Grid Margin="-2,0,2,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="231"/>
@@ -22,10 +20,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="600" />
-
         </Grid.RowDefinitions>
-
-        <Frame x:Name="Home" Height="600" Width="769"  Grid.Column="1"  Background="#FFE9F1F7" NavigationUIVisibility="Hidden" HorizontalAlignment="Right"/>
         <StackPanel x:Name="stk" Background="#FF016DB2" HorizontalAlignment="Left" Height="600"  VerticalAlignment="Top" Width="230">
             <ToggleButton x:Name="Tg" Height="157" Width="231"  Background="White"  Foreground="{x:Null}" HorizontalAlignment="Left"  Style="{DynamicResource MaterialDesignFlatMidBgButton}" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="0,-1.7">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="220" Height="80" Margin="-15">
@@ -34,8 +29,6 @@
                 </StackPanel>
                 <ToggleButton.Triggers>
                     <EventTrigger RoutedEvent="ToggleButton.Checked">
-
-
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation
@@ -43,26 +36,10 @@
                                         Storyboard.TargetProperty="Width"
                                         From="230" To="70"
                                         BeginTime="0:0:0"
-                                        Duration="0:0:0.2"
-
-                                        >
-
-
+                                        Duration="0:0:0.2" >
                                 </DoubleAnimation>
-
-
-
-
                             </Storyboard>
-
-
-
-
-
                         </BeginStoryboard>
-                        
-
-
                     </EventTrigger>
                     <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                         <BeginStoryboard>
@@ -73,33 +50,12 @@
                                         From="70" To="230"
                                         BeginTime="0:0:0"
                                         Duration="0:0:0.2">
-
-
                                 </DoubleAnimation>
-
-
-
-
                             </Storyboard>
-
-
-
-
-
                         </BeginStoryboard>
-
-
-
-
-
-
                     </EventTrigger>
-
-
                 </ToggleButton.Triggers>
-
             </ToggleButton>
-
             <ListView  Height="443" Background="#FF016DB2" Width="230">
                 <ListViewItem Name="Facture"  Selected="Call" >
                     <StackPanel Orientation="Horizontal" Width="230" Margin="-8">
@@ -111,48 +67,34 @@
                     <StackPanel Orientation="Horizontal" Width="230" Margin="-8">
                         <materialDesign:PackIcon Kind="FileAccount" Width="40" Height="71" VerticalAlignment="center" Margin="15,0,0,0"/>
                         <TextBlock Width="116" Height="53" FontSize="20" Padding="45,15"><Run Language="fr-fr" Text="Bon"/></TextBlock>
-
                     </StackPanel>
-
                 </ListViewItem>
                 <ListViewItem Name="Client" Height="70" Background="#FF016DB2" Width="230" Selected="Call" >
                     <StackPanel Orientation="Horizontal" Width="230" HorizontalAlignment="Left" Margin="-8,0">
                         <materialDesign:PackIcon Kind="User" Width="40" Height="71" VerticalAlignment="Center" Margin="15,0,0,0"/>
                         <TextBlock Width="116" Height="53" FontSize="20" Padding="45,15"><Run Language="fr-fr" Text="Client"/></TextBlock>
-
                     </StackPanel>
-
                 </ListViewItem>
                 <ListViewItem Name="Stock" Height="70" Background="#FF016DB2" Width="230" Selected="Call">
                     <StackPanel Orientation="Horizontal" Margin="-8" Width="230">
                         <materialDesign:PackIcon Kind="Storage" Width="40" Height="71" VerticalAlignment="Center" Margin="15,0,0,0"/>
                         <TextBlock Width="116" Height="53" FontSize="20" Padding="45,15"><Run Language="fr-fr" Text="Stock"/></TextBlock>
-
                     </StackPanel>
-
                 </ListViewItem>
                 <ListViewItem Name="Panne" Height="70" Background="#FF016DB2" Width="230" Selected="Call">
                     <StackPanel Orientation="Horizontal" Margin="-8" Width="230">
                         <materialDesign:PackIcon Kind="Tools" Width="40" Height="71" VerticalAlignment="Center" Margin="15,0,0,0"/>
                         <TextBlock Width="116" Height="53" FontSize="20" Padding="45,15"><Run Language="fr-fr" Text="Panne"/></TextBlock>
-
                     </StackPanel>
-
                 </ListViewItem>
                 <ListViewItem Name="Exit" Height="70" Background="#FF016DB2" Width="230" Selected="Call" >
                     <StackPanel Orientation="Horizontal" Margin="-8" Width="230">
                         <materialDesign:PackIcon Kind="ExitToApp" Width="40" Height="71" VerticalAlignment="Center" Margin="15,0,0,0"/>
                         <TextBlock Width="116" Height="53" FontSize="20" Padding="45,15"><Run Language="fr-fr" Text="Exit"/></TextBlock>
-
                     </StackPanel>
-
                 </ListViewItem>
             </ListView>
-
-
-
-
         </StackPanel>
-
+        <Frame x:Name="Home" Height="600" Width="769"  Grid.Column="1"  Background="#FFE9F1F7" NavigationUIVisibility="Hidden" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

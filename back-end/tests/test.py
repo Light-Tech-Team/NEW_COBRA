@@ -207,7 +207,7 @@ for i in range(len(Facture_products)):
 response = requests.get(BASE_URL + "product_family/2")
 print(response.json())
 response = requests.get(BASE_URL + "/product/find_by_family/TV")
-print(response.json())
+#print(response.json())
 
 
 fac_prod=     {
