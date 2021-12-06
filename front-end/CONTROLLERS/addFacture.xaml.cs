@@ -22,68 +22,52 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class addFacture : UserControl
     {
-      
+        public class zaza
+        {
+            public string namefamily { get; set; }
+        }
+        public List<zaza> fmname { get; set; }
         private FamilyService familyService = new FamilyService();
         private FirebaseClient firebaseClient;
-        private ProductService productService;
-
         public addFacture(FirebaseClient firebaseClient)
         {
-            this.productService = new ProductService(firebaseClient);
+            this.fmname = new List<zaza>();
             this.firebaseClient = firebaseClient;
             InitializeComponent();
-            listFamily.Children.Add(this.getListFamily());
+            this.getListFamily();
+            this.DataContext = this;
+           
         }
-        
+
         private void AddFamily(object sender, RoutedEventArgs e)
         {
             this.familyService.addFamily(this.firebaseClient);
         }
-   
+
         private void Next(object sender, RoutedEventArgs e)
         {
-            
+
         }
-        private StackPanel getListFamily()
+        private void getListFamily()
         {
-            try
+                byte i = 0;
+                foreach (string S in this.familyService.getAllFamily(this.firebaseClient))
+                {
+                   this.fmname.Add(new zaza(){namefamily = (i++) +"  "+ S }) ;
+                //byte g = (byte)Int16.Parse(chk.Name.Split('x')[1]);
+                }
+
+        }
+            public void Back(object sender, RoutedEventArgs e)
             {
-                StackPanel ST = new StackPanel();
-                byte i = 0;
-                List<string> vs = this.familyService.getAllFamily(this.firebaseClient);
-                foreach (string S in vs)
-                {
-                    List<Product> pr = this.productService.getProductOfFamily(i);
-                    ST.Children.Add(new familyDetail(S, pr));
-                    i++;
-                }
-                return ST;
+                GetParent<Frame>((Button)sender).Content = new FACTURE(this.firebaseClient);
             }
-            catch(Exception e) {
-                StackPanel ST = new StackPanel();
-                byte i = 0;
-                List<string> vs = this.familyService.getAllFamily(this.firebaseClient);
-                foreach (string S in vs)
-                {
-                    List<Product> pr = this.productService.getProductOfFamily(i);
-                    ST.Children.Add(new familyDetail(S, pr));
-                    i++;
-                }
-                return ST;
-
-
+            public TargetType GetParent<TargetType>(DependencyObject o)
+                where TargetType : DependencyObject
+            {
+                return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
             }
+
         }
-        
-        private void Back(object sender, RoutedEventArgs e)
-        {
-            GetParent<Frame>((Button)sender).Content = new FACTURE(this.firebaseClient);
-        }
-        private TargetType GetParent<TargetType>(DependencyObject o)
-            where TargetType : DependencyObject
-        {
-            return o == null || o is TargetType ? (TargetType)o : GetParent<TargetType>(VisualTreeHelper.GetParent(o));
-        }
-        
     }
-}
+

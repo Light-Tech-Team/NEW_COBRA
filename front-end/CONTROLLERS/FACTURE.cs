@@ -50,6 +50,7 @@ namespace NEW_COBRA
             BrushConverter bc = new BrushConverter();
             BodyPage.Background = (Brush)bc.ConvertFrom("#F6F7F8");
             BodyPage.Children.Add(new addFacture(this.firebaseClient));
+            
         }
 
 

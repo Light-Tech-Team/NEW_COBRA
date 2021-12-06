@@ -9,10 +9,24 @@
     <Grid>
         <Button x:Name="addFamily" Background="#FF016DB2" Content="add Family"  Click="AddFamily" HorizontalAlignment="Left" Margin="327,30,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="1.009,-0.4" BorderBrush="{x:Null}"/>
         <Button x:Name="next" Background="#FF016DB2" Content="Next" Click="Next" HorizontalAlignment="Left" Margin="595,30,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}"/>
-        <StackPanel Background="Azure"   x:Name="listFamily"  HorizontalAlignment="Left" Height="346" Margin="171,94,0,0" VerticalAlignment="Top" Width="419"/>
         <Button  Background="#FF016DB2" Content="Back" Click="Back" HorizontalAlignment="Left" Margin="93,30,0,0" VerticalAlignment="Top" Width="75" BorderBrush="{x:Null}"/>
+        <StackPanel Background="Azure"   x:Name="listFamily"  HorizontalAlignment="Left" Height="346" Margin="171,94,0,0" VerticalAlignment="Top" Width="419" Orientation="Vertical">
+            <ListBox  ItemsSource="{Binding fmname}" Height="346">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
 
-        <ScrollViewer Width="18" Height="300" Margin="782,105,0,40"  ></ScrollViewer>
+                        <CheckBox  Background="#FF016DB2" Foreground="Black" Content="{Binding namefamily}"> </CheckBox>
+                        
+                    </DataTemplate>
+                    
+                </ListBox.ItemTemplate>
+                
+            </ListBox>
+            
+        </StackPanel>
+
+
+        
 
 
 
