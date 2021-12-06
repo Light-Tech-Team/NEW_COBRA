@@ -20,13 +20,13 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class familyDetail : UserControl
     {
-        public List<ProductList>  me { get;set; }
+        public List<ProductList>  listProduct { get;set; }
         string[] nameProduct;
         string nbtn;
       
          public familyDetail(string nbtn, List<Product> _prot) 
         {
-            me = new List<ProductList>();
+            listProduct = new List<ProductList>();
             this.nameProduct = new string[_prot.Count];
             this.nbtn = nbtn;
             for (int i = 0; i < _prot.Count; i++)
@@ -45,15 +45,14 @@ namespace NEW_COBRA.CONTROLLERS
             int i = 0;
             foreach (string S in this.nameProduct)
             {
-                me.Add(new ProductList() { Na = S, Index = i });   
+                listProduct.Add(new ProductList() { Name = S });   
                 i++;
             }
            
         }
         public class ProductList
-        {
-            public int Index { get; set; }
-            public string Na { get; set; }
+        { 
+            public string Name { get; set; }
         }
 
 

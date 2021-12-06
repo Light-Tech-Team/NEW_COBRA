@@ -13,11 +13,11 @@
         <StackPanel Orientation="Vertical">
             <Label x:Name= "ryra" Background="#FF016DB2" Foreground="Black"></Label>
 
-            <ListView Height="255" Margin="10,0" ItemsSource="{Binding me}">
+            <ListView Height="255" Margin="10,0" ItemsSource="{Binding listProduct}">
                 <ListView.ItemTemplate>
                     <DataTemplate >
                         <StackPanel Orientation="Horizontal">
-                            <Label  Content="{Binding Na}" Foreground="Black" Background="Aqua"  HorizontalAlignment="Left"></Label>
+                            <Label  Content="{Binding Name}" Foreground="Black" Background="Aqua"  HorizontalAlignment="Left"></Label>
                             <TextBox Width="25"  Text="0" Foreground="Black"  HorizontalAlignment="Left"/>
                         </StackPanel>
                     </DataTemplate>
