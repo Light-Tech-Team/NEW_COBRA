@@ -13,15 +13,10 @@ using System.Web;
 namespace NEW_COBRA.DATA
 {
     class ProductData
-<<<<<<< HEAD
-    {
-        List<Product> product;
-=======
     {   
         List<Product> product ;
         HttpClient Client = new HttpClient();
         HttpResponseMessage response;
->>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
         public ProductData(FirebaseClient firebaseClient)
         {
             try
@@ -36,19 +31,6 @@ namespace NEW_COBRA.DATA
 
         private async void getFirebaseProduct(FirebaseClient firebaseClient)
         {
-<<<<<<< HEAD
-            try
-            {
-                FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
-                Console.WriteLine("xxxxxxxxxxxxxxxxx");
-                this.product = Response.ResultAs<List<Product>>();
-            }
-            catch (Exception e) {
-                FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
-                Console.WriteLine("xxxxxxxxxxxxxxxxx");
-                this.product = Response.ResultAs<List<Product>>();
-            }
-=======
                 do
                 {
                     FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
@@ -60,7 +42,6 @@ namespace NEW_COBRA.DATA
                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
                
             
->>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
         }
 
         public void addProduct()
@@ -83,72 +64,19 @@ namespace NEW_COBRA.DATA
 
          
         public List<Product> getProductOfFamily(byte ID_FAMILY)
-<<<<<<< HEAD
-            
-
-        { List<Product> product = new List<Product>();
-            try
-            {
-
-                for (byte o = 0; o < this.product.Count; o++)
-                    if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
-                        product.Add(this.product.ElementAt<Product>(o));
-
-
-
-                for (byte o = 0; o < this.product.Count; o++)
-                    if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
-                        product.Add(this.product.ElementAt<Product>(o));
-
-
-
-                return product;
-            }
-            catch(Exception e) {
-=======
         {
             try
             {
                 List<Product> product = new List<Product>();
                 
->>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
                 for (byte o = 0; o < this.product.Count; o++)
                     if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
                         product.Add(this.product.ElementAt<Product>(o));
 
-<<<<<<< HEAD
-
-
-                for (byte o = 0; o < this.product.Count; o++)
-                    if (ID_FAMILY == this.product.ElementAt<Product>(o).ID_FAMILY)
-                        product.Add(this.product.ElementAt<Product>(o));
-
-
-
-                return product;
-
-
-
-
-
-
-
-
-
-            }
-        
-        
-=======
                 return product;
             }
             catch(Exception e) { return product; }
->>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
         }
-    
-    
-    
-    
-
 
 
 

@@ -21,17 +21,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="600" />
         </Grid.RowDefinitions>
-<<<<<<< HEAD
-
-        <Frame x:Name="Home" Height="600" Width="769"  Grid.Column="1"  Background="#FFE9F1F7" NavigationUIVisibility="Hidden" HorizontalAlignment="Right"
-                   ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"  VerticalAlignment="Top" 
-                   >
-            
-            
-        </Frame>
-        
-=======
->>>>>>> 6f2c838e678f41aed6d47014fcd0da17a770fac8
         <StackPanel x:Name="stk" Background="#FF016DB2" HorizontalAlignment="Left" Height="600"  VerticalAlignment="Top" Width="230">
             <ToggleButton x:Name="Tg" Height="157" Width="231"  Background="White"  Foreground="{x:Null}" HorizontalAlignment="Left"  Style="{DynamicResource MaterialDesignFlatMidBgButton}" HorizontalContentAlignment="Left" VerticalAlignment="Top" Margin="0,-1.7">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="220" Height="80" Margin="-15">
@@ -50,6 +39,11 @@
                                         Duration="0:0:0.2" >
                                 </DoubleAnimation>
                             </Storyboard>
+
+
+
+
+
                         </BeginStoryboard>
                     </EventTrigger>
                     <EventTrigger RoutedEvent="ToggleButton.Unchecked">
