@@ -31,6 +31,7 @@ class product(Resource):
         result = Product.query.filter_by(id=product_id).first()
         if result:
             abort(404, message="Produit {} inexistant".format(product_id))
+        print(args)
         product = Product(id = product_id, **args)
         db.session.add(product)
         db.session.commit()

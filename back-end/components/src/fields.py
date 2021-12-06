@@ -8,7 +8,7 @@ product_resource_fields = {
     #'description': fields.String,
     #'image': fields.String,
     'montant': fields.Float,
-    'prouct_family_id': fields.Integer
+    'product_family_id': fields.Integer
 }
 
 product_family_resource_fields = {
