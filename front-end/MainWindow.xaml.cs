@@ -40,7 +40,6 @@ namespace NEW_COBRA
             
             try { 
             this.firebaseClient = new FirebaseClient(firebaseConfig);
-            this.productService = new ProductService(firebaseClient);
                 }
             catch(Exception e)
             {

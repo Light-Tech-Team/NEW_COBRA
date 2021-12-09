@@ -33,6 +33,7 @@
                         <DataTemplate>
                             <Button Background="Azure" Foreground="#FF016DB2" 
                                     Content="Show" BorderBrush="#FF016DB2"
+                                    Click="SHOWBN"
                                ></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

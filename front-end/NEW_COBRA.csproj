@@ -113,8 +113,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CONTROLLERS\addfamily.xaml.cs">
+      <DependentUpon>addfamily.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLLERS\addFacture.xaml.cs">
       <DependentUpon>addFacture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLLERS\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="CONTROLLERS\BonsDetail.xaml.cs">
       <DependentUpon>BonsDetail.xaml</DependentUpon>
@@ -141,7 +147,15 @@
     <Compile Include="SERVICE\PanneService.cs" />
     <Compile Include="SERVICE\ProductService.cs" />
     <Compile Include="SERVICE\StockService.cs" />
+    <Page Include="CONTROLLERS\addfamily.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CONTROLLERS\addFacture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CONTROLLERS\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

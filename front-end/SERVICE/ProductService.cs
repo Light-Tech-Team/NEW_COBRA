@@ -21,7 +21,7 @@ namespace NEW_COBRA.SERVICE
             this.productData = new ProductData(firebaseClient);
           
         }
-        public void addProduct()
+        public void addProduct(Product product)
         {
 
         }

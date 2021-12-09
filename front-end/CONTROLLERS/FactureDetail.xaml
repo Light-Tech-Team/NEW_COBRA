@@ -11,8 +11,9 @@
         Width="816"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Icon="C:\Users\Basbas\Desktop\Nouveau dossier\NEW_COBRA\front-end/cobra (3).ico"
+       
         >
+    <!--Icon="C:\Users\Basbas\Desktop\Nouveau dossier\NEW_COBRA\front-end/cobra (3).ico"-->
     <Grid Margin="0,0,0,-1" Background="#FF016DB2">
 
         <Border Background="#FFD6DFF0" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="810" Grid.ColumnSpan="2">

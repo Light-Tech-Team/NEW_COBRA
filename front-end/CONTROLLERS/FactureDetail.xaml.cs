@@ -50,8 +50,6 @@ namespace NEW_COBRA.CONTROLLERS
 
         }
 
-      
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();

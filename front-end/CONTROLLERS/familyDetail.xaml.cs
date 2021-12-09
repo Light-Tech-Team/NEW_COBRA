@@ -12,49 +12,69 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FireSharp;
 using NEW_COBRA.ENTITY;
+using NEW_COBRA.SERVICE;
+
 namespace NEW_COBRA.CONTROLLERS
 {
     /// <summary>
     /// Interaction logic for familyDetail.xaml
     /// </summary>
-    public partial class familyDetail : UserControl
+    public partial class FamilyDetail : UserControl
     {
-        public List<ProductList>  listProduct { get;set; }
-        string[] nameProduct;
-        string nbtn;
-      
-         public familyDetail(string nbtn, List<Product> _prot) 
+        public List<ProductList> ListProduct { get; set; }
+        int Id_family;
+        FirebaseClient firebaseClient;
+        private string[] nameProduct;
+        private readonly string nbtn;
+        private readonly FamilyService familyService = new FamilyService();
+
+
+        public FamilyDetail(int Id_family, FirebaseClient firebaseClient, List<Product> prot)
         {
-            listProduct = new List<ProductList>();
-            this.nameProduct = new string[_prot.Count];
-            this.nbtn = nbtn;
-            for (int i = 0; i < _prot.Count; i++)
-            {
-                this.nameProduct[i] = _prot.ElementAt<Product>(i).NAME ;
-            }
+            this.Id_family = Id_family;
+            this.firebaseClient = firebaseClient;
+            ListProduct = new List<ProductList>();
+            this.nbtn = familyService.getAllFamily(firebaseClient).ElementAt(Id_family);
             InitializeComponent();
+            mop(prot);
             Lip();
             this.DataContext = this;
         }
-       
+        private void mop(List<Product> proto)
+        {
+            nameProduct = new string[proto.Count];
+            for (int i = proto.Count - 1; i >= 0; i--)
+            {
+                nameProduct[i] = proto.ElementAt(i).NAME;
+                Console.WriteLine(nameProduct[i]);
+            }
+        }
         private void Lip()
-        {   ryra.Content = this.nbtn ;
-            
-           
+        {
+            ryra.Content = this.nbtn;
             int i = 0;
             foreach (string S in this.nameProduct)
             {
-                listProduct.Add(new ProductList() { Name = S });   
+                ListProduct.Add(new ProductList() { Name = S });
                 i++;
             }
-           
+
         }
         public class ProductList
-        { 
+        {
             public string Name { get; set; }
         }
 
-
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+            if (add_product.Children.Add(new AddProduct((byte)Id_family, firebaseClient)) != 0)
+            {
+                add_product.Children.Clear();
+            }
+        
+        }
     }
+
 }

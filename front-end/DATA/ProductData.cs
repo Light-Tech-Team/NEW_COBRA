@@ -19,29 +19,34 @@ namespace NEW_COBRA.DATA
         HttpResponseMessage response;
         public ProductData(FirebaseClient firebaseClient)
         {
-            try
-            {
+         
                 this.getFirebaseProduct(firebaseClient);
-            }
-            catch (Exception e) {
-                this.getFirebaseProduct(firebaseClient);
-
-            }
+            
+        
         }
 
         private async void getFirebaseProduct(FirebaseClient firebaseClient)
         {
-                do
-                {
-                    FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
-                    this.product = Response.ResultAs<List<Product>>();
-                } while (this.product == null);
-                Console.WriteLine(this.product);
-                Console.WriteLine("xxxxxxxxxxxxxxxxx");
-                //response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
-               // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
-               
+
+                
+              
+                try
+            {
+                Console.WriteLine(firebaseClient.ToString() + "gggggggggg");
+                FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
+                this.product = Response.ResultAs<List<Product>>();
+                Console.WriteLine(this.product.Count);
+            }
+            catch (Exception e) {
+                Console.WriteLine("rrrrrrrrr");
+            }
+                   
             
+            
+                //response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
+                // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+
+
         }
 
         public void addProduct()

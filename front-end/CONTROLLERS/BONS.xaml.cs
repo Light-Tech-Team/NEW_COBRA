@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEW_COBRA.CONTROLLERS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,12 @@ namespace NEW_COBRA
             InitializeComponent();
         }
 
+        public void SHOWBN (object sender , RoutedEventArgs e)
+        {
 
+            new BonsDetail().Show();
+
+        }
        
     }
 }
