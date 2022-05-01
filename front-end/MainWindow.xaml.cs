@@ -33,6 +33,7 @@ namespace NEW_COBRA
         };
         FirebaseClient firebaseClient;
         private ProductService productService;
+        private List<itemHome> listHome;
         public MainWindow()
         {
             
@@ -46,15 +47,37 @@ namespace NEW_COBRA
 
 
             }
-            
-    }
+            listHome = new List<itemHome>(){new itemHome { Icon = "NoteOutline", Name = "Facture" },
+                                            new itemHome { Icon = "FileAccount", Name = "Bon" },
+                                            new itemHome { Icon = "User", Name = "Client"},
+                                            new itemHome { Icon = "Storage", Name = "Stock"} ,
+                                            new itemHome { Icon = "Tools", Name = "Panne"},
+                                            new itemHome { Icon = "ExitToApp", Name = "Exit"}  };
+            this.DataContext = this;
+        }
+        public List<itemHome> ListHome
+        {
+            get
+            { return listHome; }
+        }
+        public class itemHome
+        {
+            public string Icon { get; set; }
+            public string Name { get; set; }
+        }
 
-       
+    
+        public int derat(int a)
+        {
+            if (a > 3) return 0;
+            return 1;
+        }
+
 
 
         private void Call(object sender, RoutedEventArgs e)
         {
-            string S = (sender as ListViewItem).Name;
+            string S = ((TextBlock)VisualTreeHelper.GetChild((StackPanel)sender,1)).Text;
             switch (S)
             {
                 case "Facture":

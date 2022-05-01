@@ -60,9 +60,13 @@ namespace NEW_COBRA.CONTROLLERS
             switch (i)
             {
                 case 0:
-                    GetParent<Frame>((Button)sender).Content = new FACTURE(firebaseClient);
+                    ((Grid)VisualTreeHelper.GetParent(GetParent<UserControl>((Button)sender))).Children.Add(new addFacture(this.firebaseClient));
+                    ((Grid)VisualTreeHelper.GetParent(GetParent<UserControl>((Button)sender))).Children.RemoveAt(0);
+                    
+                  
                     break;
                 default:
+                    if (i < 0) break;
                     --i;
                     listFamilyView.Children.Clear();
                     _ = listFamilyView.Children.Add(new FamilyDetail(Index.ElementAt<int>(i), firebaseClient,

@@ -23,6 +23,7 @@ namespace NEW_COBRA.SERVICE
         }
         public void addProduct(Product product)
         {
+            this.productData.addProduct(product);
 
         }
         public void deleteProduct()

@@ -16,9 +16,6 @@ namespace NEW_COBRA.DATA
     {
     
 
-     
-      
-
         public void addInvoice()
         {
 

@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen"
         BorderBrush="{x:Null}"
         SizeToContent="WidthAndHeight">
-    <StackPanel>
+    <StackPanel >
         <Grid HorizontalAlignment="Right" Height="25" Width="432" VerticalAlignment="Top" Background="#FF0F6ADC" >
             <Button  Content="X" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" Background="#FF338EDD"
                      Height="22.2" Margin="384,0,1,1.2" Width="40" Click="Button_Click"/>
@@ -25,7 +25,6 @@
             <Button BorderBrush="{x:Null}" Background="#FFE9F1F7" Foreground="Black"
                     FontSize="11" Content="ADD FAMILY" Click="AddFamily" Margin="306,11,16,10" Height="Auto"/>
         </Grid>
-        <StackPanel Background="#FF5789F5" x:Name="stt"   VerticalAlignment="Top"></StackPanel>
-
+        <StackPanel Background="#FF5789F5" x:Name="stt"  VerticalAlignment="Top"></StackPanel>
     </StackPanel>
 </Window>

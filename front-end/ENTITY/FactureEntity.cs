@@ -19,6 +19,7 @@ namespace NEW_COBRA.ENTITY
         private List<FactureElement> factureElement;
 
         public DateTime date { get; set; }
+        
         internal List<FactureElement> FactureElement { get => factureElement; set => factureElement = value; }
     }
 }

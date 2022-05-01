@@ -58,13 +58,13 @@ class Product_family(db.Model):
 class Product(db.Model):
     __tablename__ = 'product'
     id = db.Column(db.Integer, primary_key=True)
-    nom = db.Column(db.String(255))
-    code = db.Column(db.String(255))
-    buy_prix = db.Column(db.Float)
-    sell_prix = db.Column(db.Float)
+    NAME = db.Column(db.String(255))
+    CODE = db.Column(db.String(255))
+    PRICE_BUY = db.Column(db.Float)
+    PRICE_SELL = db.Column(db.Float)
     #description = db.Column(db.String(255))
     #image = db.Column(db.String(255))
-    product_family_id = db.Column(db.Integer, db.ForeignKey('product_family.id'))
+    ID_FAMILY = db.Column(db.Integer, db.ForeignKey('product_family.id'))
 
 
     def __repr__(self):

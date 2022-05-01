@@ -2,13 +2,13 @@
 using FireSharp.Response;
 using Microsoft.Office.Interop.Excel;
 using NEW_COBRA.ENTITY;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+
 
 namespace NEW_COBRA.DATA
 {
@@ -40,18 +40,24 @@ namespace NEW_COBRA.DATA
             catch (Exception e) {
                 Console.WriteLine("rrrrrrrrr");
             }
-                   
-            
-            
-                //response = Client.GetAsync("http://127.0.0.1:5000//product/1").Result;
-                // Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+
+
+
+
+             //var resp= await Client.GetAsync("http://127.0.0.1:5000//product/3");
+            //string se = await resp.Content.ReadAsStringAsync();
+            //Product p= JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
+            //Console.WriteLine(P.NAME) ;
 
 
         }
 
-        public void addProduct()
+        public async void addProduct(Product product)
         {
-
+           // var dui = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+          //  await Client.PostAsync("http://127.0.0.1:5000//product/", dui) ;
+            //Console.WriteLine(dui.ReadAsStringAsync) ;
+           //Console.WriteLine("success");
         }
         public void deleteProduct()
         {
