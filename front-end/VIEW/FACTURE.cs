@@ -19,19 +19,25 @@ using DataGrid = System.Windows.Controls.DataGrid;
 using NEW_COBRA.ENTITY;
 using NEW_COBRA.CONTROLLERS;
 using FireSharp;
+using NEW_COBRA.DATA;
 
 namespace NEW_COBRA
 {
 
     public partial class FACTURE : System.Windows.Controls.Page
     {
-        private FactureService factureService = new FactureService();
+        
         private FirebaseClient firebaseClient;
+        FactureData facturedata;
+
         public FACTURE(FirebaseClient firebaseClient)
         {
             this.firebaseClient = firebaseClient;
             InitializeComponent();
-            Dtgd.ItemsSource = this.factureService.getAllInvoice(firebaseClient).Result;
+            this.facturedata = new FactureData();
+            Dtgd.ItemsSource = this.facturedata.getAllInvoice().Result;
+
+
         }
         void Show(object sender, RoutedEventArgs e)
         {

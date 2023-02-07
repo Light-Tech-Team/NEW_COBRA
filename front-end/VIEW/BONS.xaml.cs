@@ -1,4 +1,5 @@
 ﻿using NEW_COBRA.CONTROLLERS;
+using NEW_COBRA.DATA;
 using NEW_COBRA.SERVICE;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,13 @@ namespace NEW_COBRA
     /// </summary>
     public partial class BONS : Page
     {
-        BonsService Service = new BonsService(); 
+       
+        BonsData bn = new BonsData();
         public BONS()
         {
          
             InitializeComponent();
-            Bndtgd.ItemsSource = Service.GetAllBons();
+            Bndtgd.ItemsSource = bn.GetAllBons();
         }
 
         public void SHOWBN (object sender , RoutedEventArgs e)

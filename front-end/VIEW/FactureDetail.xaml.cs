@@ -1,7 +1,6 @@
 ﻿using FireSharp;
-using Microsoft.Office.Interop.Excel;
+using NEW_COBRA.DATA;
 using NEW_COBRA.ENTITY;
-using NEW_COBRA.SERVICE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,14 +23,14 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class FactureDetail : System.Windows.Window
     {
-        FactureService factureService = new FactureService(); 
+        FactureData facturedata=new FactureData();
         FactureEntity factureEntity = new FactureEntity();
         public FactureDetail(FirebaseClient firebaseClient, byte I)
         {
 
             InitializeComponent();
             try { 
-            this.factureEntity = this.factureService.getInvoice(firebaseClient, I).Result;
+            this.factureEntity = this.facturedata.getInvoice().Result;
             factureTable.ItemsSource = this.factureEntity.FactureElement;
             DateTime Date = this.factureEntity.date;
         }
