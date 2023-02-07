@@ -193,22 +193,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CONTROLLERS\addfamily.xaml.cs">
+    <Compile Include="VIEW\addfamily.xaml.cs">
       <DependentUpon>addfamily.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\addFacture.xaml.cs">
+    <Compile Include="VIEW\addFacture.xaml.cs">
       <DependentUpon>addFacture.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\AddProduct.xaml.cs">
+    <Compile Include="VIEW\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\BonsDetail.xaml.cs">
+    <Compile Include="VIEW\BonsDetail.xaml.cs">
       <DependentUpon>BonsDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\FactureDetail.xaml.cs">
+    <Compile Include="VIEW\FactureDetail.xaml.cs">
       <DependentUpon>FactureDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\familyDetail.xaml.cs">
+    <Compile Include="VIEW\familyDetail.xaml.cs">
       <DependentUpon>familyDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="DATA\BonsData.cs" />
@@ -221,54 +221,49 @@
     <Compile Include="DATA\StockData.cs" />
     <Compile Include="ENTITY\BonsElement.cs" />
     <Compile Include="ENTITY\FactureElement.cs" />
-    <Compile Include="SERVICE\BonsService.cs" />
-    <Compile Include="SERVICE\ClientService.cs" />
-    <Compile Include="SERVICE\FactureService.cs" />
     <Compile Include="SERVICE\FamilyService.cs" />
-    <Compile Include="SERVICE\PanneService.cs" />
     <Compile Include="SERVICE\ProductService.cs" />
-    <Compile Include="SERVICE\StockService.cs" />
-    <Page Include="CONTROLLERS\addfamily.xaml">
+    <Page Include="VIEW\addfamily.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\addFacture.xaml">
+    <Page Include="VIEW\addFacture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\AddProduct.xaml">
+    <Page Include="VIEW\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\BONS.xaml">
+    <Page Include="VIEW\BONS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\BonsDetail.xaml">
+    <Page Include="VIEW\BonsDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\CLIENT.xaml">
+    <Page Include="VIEW\CLIENT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\FACTURE.xaml">
+    <Page Include="VIEW\FACTURE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\FactureDetail.xaml">
+    <Page Include="VIEW\FactureDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\familyDetail.xaml">
+    <Page Include="VIEW\familyDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\PANNE.xaml">
+    <Page Include="VIEW\PANNE.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CONTROLLERS\STOCK.xaml">
+    <Page Include="VIEW\STOCK.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,19 +275,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CONTROLLERS\BONS.xaml.cs">
+    <Compile Include="VIEW\BONS.xaml.cs">
       <DependentUpon>BONS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\CLIENT.xaml.cs">
+    <Compile Include="VIEW\CLIENT.xaml.cs">
       <DependentUpon>CLIENT.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\FACTURE.cs">
+    <Compile Include="VIEW\FACTURE.cs">
       <DependentUpon>FACTURE.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\PANNE.xaml.cs">
+    <Compile Include="VIEW\PANNE.xaml.cs">
       <DependentUpon>PANNE.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLLERS\STOCK.xaml.cs">
+    <Compile Include="VIEW\STOCK.xaml.cs">
       <DependentUpon>STOCK.xaml</DependentUpon>
     </Compile>
     <Compile Include="ENTITY\BonsEntity.cs" />

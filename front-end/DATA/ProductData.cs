@@ -44,17 +44,17 @@ namespace NEW_COBRA.DATA
 
 
 
-             //var resp= await Client.GetAsync("http://127.0.0.1:5000//product/3");
-            //string se = await resp.Content.ReadAsStringAsync();
-            //Product p= JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
-            //Console.WriteLine(P.NAME) ;
+             var resp= await Client.GetAsync("http://127.0.0.1:5000//product/1");
+            string se = await resp.Content.ReadAsStringAsync();
+            Product p= JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
+            Console.WriteLine(p.NAME) ;
 
 
         }
 
         public async void addProduct(Product product)
         {
-           // var dui = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
+           //var dui = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
           //  await Client.PostAsync("http://127.0.0.1:5000//product/", dui) ;
             //Console.WriteLine(dui.ReadAsStringAsync) ;
            //Console.WriteLine("success");
