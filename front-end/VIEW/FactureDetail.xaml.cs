@@ -31,8 +31,8 @@ namespace NEW_COBRA.CONTROLLERS
             InitializeComponent();
             try { 
             this.factureEntity = this.facturedata.getInvoice().Result;
-            factureTable.ItemsSource = this.factureEntity.FactureElement;
-            DateTime Date = this.factureEntity.date;
+           // factureTable.ItemsSource = this.factureEntity.FactureElement;
+          //DateTime Date = this.factureEntity.date;
         }
             catch(Exception e)
             {

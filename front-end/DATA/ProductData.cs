@@ -36,6 +36,11 @@ namespace NEW_COBRA.DATA
                 FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
                 this.product = Response.ResultAs<List<Product>>();
                 Console.WriteLine(this.product.Count);
+                var resp = await Client.GetAsync("http://127.0.0.1:5000//product/1");
+                string se = await resp.Content.ReadAsStringAsync();
+                Product p = JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
+                Console.WriteLine(p.NAME);
+
             }
             catch (Exception e) {
                 Console.WriteLine("rrrrrrrrr");
@@ -44,11 +49,7 @@ namespace NEW_COBRA.DATA
 
 
 
-             var resp= await Client.GetAsync("http://127.0.0.1:5000//product/1");
-            string se = await resp.Content.ReadAsStringAsync();
-            Product p= JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
-            Console.WriteLine(p.NAME) ;
-
+           
 
         }
 

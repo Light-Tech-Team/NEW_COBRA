@@ -1,4 +1,5 @@
-﻿using NEW_COBRA.SERVICE;
+﻿using NEW_COBRA.DATA;
+using NEW_COBRA.SERVICE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,11 @@ namespace NEW_COBRA.CONTROLLERS
     /// </summary>
     public partial class BonsDetail : Window
     {
-        BonsService Bnservice = new BonsService();
+        BonsData Bnsdata = new BonsData();
         public BonsDetail()
         {
             InitializeComponent();
-            BonTable.ItemsSource = Bnservice.GetBons();
+            BonTable.ItemsSource = Bnsdata.GetBons();
         }
        /* void ShowbOn(object sender, RoutedEventArgs e)
         {

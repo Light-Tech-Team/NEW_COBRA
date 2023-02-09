@@ -12,14 +12,11 @@ namespace NEW_COBRA.ENTITY
     {
         public byte id { get; set; }
 
-        public float totalAmount { get; set; }
+        public float montant { get; set; }
 
-       
 
-        private List<FactureElement> factureElement;
-
-        public DateTime date { get; set; }
+         public DateTime date { get; set; }
         
-        internal List<FactureElement> FactureElement { get => factureElement; set => factureElement = value; }
+        
     }
 }
