@@ -8,8 +8,6 @@ class Facture(db.Model):
     #client_id = db.Column(db.Integer, db.ForeignKey('client.id'))
     #client = db.relationship('Client', backref=db.backref('factures', lazy='select'))
 
-
-
     def __repr__(self):
         return '<Facture %r>' % self.id
 
@@ -32,16 +30,17 @@ class Facture(db.Model):
 
 
 
-class Facture_product(db.Model):
-    __tablename__ = 'facture_product'
+class Facture_element(db.Model):
+    __tablename__ = 'facture_element'
     id = db.Column(db.Integer, primary_key=True)
     facture_id = db.Column(db.Integer, db.ForeignKey('facture.id'))
-    facture = db.relationship('Facture', backref=db.backref('facture_products', lazy='select'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    product = db.relationship('Product', backref=db.backref('facture_products', lazy='select'))
+    PRICE_BUY = db.Column(db.Float)
     quantite = db.Column(db.Integer)
     montant = db.Column(db.Float)
-
+    facture = db.relationship('Facture', backref=db.backref('facture_element', lazy='select'))
+    product = db.relationship('Product', backref=db.backref('facture_element', lazy='select'))
+    
     def __repr__(self):
         return '<Facture_product %r>' % self.id
 
@@ -60,7 +59,6 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     NAME = db.Column(db.String(255))
     CODE = db.Column(db.String(255))
-    PRICE_BUY = db.Column(db.Float)
     PRICE_SELL = db.Column(db.Float)
     #description = db.Column(db.String(255))
     #image = db.Column(db.String(255))
