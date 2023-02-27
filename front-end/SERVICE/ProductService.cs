@@ -14,27 +14,16 @@ namespace NEW_COBRA.SERVICE
     class ProductService
     {
         ProductData productData;
-        HttpClient Client = new HttpClient();
+       
 
         public ProductService( FirebaseClient firebaseClient)
         { 
             this.productData = new ProductData(firebaseClient);
           
         }
-        public void addProduct(Product product)
-        {
-            this.productData.addProduct(product);
-
-        }
-        public void deleteProduct()
-        {
-
-        }
-        public Product getProduct( byte id)
-        {
-           
-           return this.productData.getProduct(  id);
-        }
+     
+       
+     
         public List<Product> getProductOfFamily( byte ID_FAMILY)
         {
             return this.productData.getProductOfFamily(  ID_FAMILY);

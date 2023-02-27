@@ -55,6 +55,20 @@ namespace NEW_COBRA.CONTROLLERS
 
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                    printDialog.PrintVisual(BECH,"INVOICE") ;
+            }
+            finally
+            {
+                this.IsEnabled = true;
+
+            }
+        }
     }
 }

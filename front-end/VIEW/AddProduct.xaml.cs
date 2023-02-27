@@ -1,4 +1,5 @@
 ﻿using FireSharp;
+using NEW_COBRA.DATA;
 using NEW_COBRA.SERVICE;
 using System;
 using System.Collections.Generic;
@@ -23,18 +24,17 @@ namespace NEW_COBRA.CONTROLLERS
     public partial class AddProduct : UserControl
     {   private byte id_family;
         private FirebaseClient firebaseClient;
-        private ProductService productService;
+        private ProductData productData;
+        
         public AddProduct(byte id_family, FirebaseClient firebaseClient)
         {
             this.firebaseClient = firebaseClient;
-            productService = new ProductService(this .firebaseClient) ;
+            productData = new ProductData(this .firebaseClient) ;
             this.id_family = id_family;
             InitializeComponent();
         }
 
-        public AddProduct()
-        {
-        }
+     
 
         private void SAVE(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ namespace NEW_COBRA.CONTROLLERS
             product.CODE = CODE.Text;
             product.PRICE_BUY = (int)Int32.Parse( PRICE_BUY.Text);
             product.PRICE_SELL = (int)Int32.Parse(PRICE_SELL.Text);
-            productService.addProduct(product);
+            productData.addProduct(product);
             ((StackPanel)GetParent<UserControl>((Button)sender).Parent).Children.Add(new AddProduct(id_family, firebaseClient));
             ((StackPanel)GetParent<UserControl>((Button)sender).Parent).Children.RemoveAt(0);
         }

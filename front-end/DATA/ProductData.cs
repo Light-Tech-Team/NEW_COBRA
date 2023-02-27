@@ -28,18 +28,19 @@ namespace NEW_COBRA.DATA
         private async void getFirebaseProduct(FirebaseClient firebaseClient)
         {
 
-                
-              
+                     
                 try
-            {
-                Console.WriteLine(firebaseClient.ToString() + "gggggggggg");
+            {   
+                //use firebase
                 FirebaseResponse Response = await firebaseClient.GetAsync("PRODUCT").ConfigureAwait(false);
                 this.product = Response.ResultAs<List<Product>>();
-                Console.WriteLine(this.product.Count);
+                Console.WriteLine("number of products in firebase : " + this.product.Count);
+                
+                //use locat database
                 var resp = await Client.GetAsync("http://127.0.0.1:5000//product/1");
                 string se = await resp.Content.ReadAsStringAsync();
                 Product p = JsonConvert.DeserializeObject<List<Product>>(se).ElementAt(0);
-                Console.WriteLine(p.NAME);
+                Console.WriteLine("first product name : " + p.NAME);
 
             }
             catch (Exception e) {
@@ -47,9 +48,6 @@ namespace NEW_COBRA.DATA
             }
 
 
-
-
-           
 
         }
 
@@ -64,16 +62,7 @@ namespace NEW_COBRA.DATA
         {
 
         }
-        public Product getProduct(byte id)
-        {
-            try
-            {
-                return this.product.ElementAt<Product>(id);
-            }
-            catch (Exception e)
-            { return this.product.ElementAt<Product>(id); }
-        }
-
+        
          
         public List<Product> getProductOfFamily(byte ID_FAMILY)
         {
@@ -89,9 +78,6 @@ namespace NEW_COBRA.DATA
             }
             catch(Exception e) { return product; }
         }
-
-
-
 
     }
 }
