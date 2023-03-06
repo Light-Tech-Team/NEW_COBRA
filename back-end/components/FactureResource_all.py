@@ -13,12 +13,16 @@ class FactureResource_all(Resource):
 
     @marshal_with(facture_element_resource_fields)
     def post(self):
-        args = facture_element_put_args.parse_args()
-        print(args)
-        facture_element = Facture_element(**args)
-        db.session.add(facture_element)
-        db.session.commit()
-        return facture_element, 201
+    
+        args =facture_element_put_args.parse_args()
+        data=[arg for arg in args['facture']]
+        
+       # print(args['facture'])
+    #    for arg in self :
+         #   facture_element = Facture_element(**arg)
+          #  db.session.add(facture_element)
+           # db.session.commit()
+        return  data ,201
     
     
 class Facture_products_ids(Resource):
