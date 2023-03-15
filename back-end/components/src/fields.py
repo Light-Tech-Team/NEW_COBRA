@@ -6,13 +6,13 @@ product_resource_fields = {
     'CODE': fields.String,
     #'description': fields.String,
     #'image': fields.String,
-    'ID_FAMILY': fields.Integer
+    'family': fields.String
     
 }
 
 product_family_resource_fields = {
     'id': fields.Integer,
-    'nom': fields.String,
+    'family': fields.String,
     #'description': fields.String,
 }
 
@@ -26,8 +26,10 @@ facture_resource_fields = {
 facture_element_resource_fields = {
     'facture_id': fields.Integer,
     'id': fields.Integer,
-    'product_id': fields.Integer,
+    'NAME': fields.String,
+    'CODE': fields.String,
     'PRICE_BUY': fields.Float,
+    'family':fields.String,
     'quantite': fields.Integer,
     'montant': fields.Float,
 }

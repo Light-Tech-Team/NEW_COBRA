@@ -48,7 +48,7 @@ class Facture_element(db.Model):
 class Product_family(db.Model):
     __tablename__ = 'product_family'
     id = db.Column(db.Integer, primary_key=True)
-    nom = db.Column(db.String(255))
+    family = db.Column(db.String(255))
     #description = db.Column(db.String(255))
     products = db.relationship('Product', backref=db.backref('prouct_family', lazy='select'))
     def __repr__(self):

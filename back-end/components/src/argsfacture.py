@@ -6,11 +6,14 @@ import json
 facture_element_put_args= reqparse.RequestParser()
 def facture_element(value):
     facture_element = {
-        'id': {'required': True, 'type': 'integer'},
-        'quantite': {'required': True, 'type': 'integer'},
+    
         'facture_id': {'required': True, 'type': 'integer'},
+        'id': {'required': True, 'type': 'integer'},
+        'NAME': {'required': True, 'type': 'string'},
+        'CODE': {'required': True, 'type': 'string'},
         'PRICE_BUY': {'required': True, 'type': 'float'},
-        'product_id': {'required': True, 'type': 'integer'},
+        'family': {'required': True, 'type': 'string'},
+        'quantite': {'required': True, 'type': 'integer'},
         'montant': {'required': True, 'type': 'float'}
     }
     v = Validator(facture_element)

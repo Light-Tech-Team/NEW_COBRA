@@ -1,4 +1,4 @@
-from models import Facture ,Facture_element
+from models import Facture ,Facture_element,Product,Product_family
 from .src.argsfacture import facture_element_put_args,facture_element_update_args
 from .src.fields import facture_resource_fields,facture_element_resource_fields
 from extensions import db
@@ -57,5 +57,13 @@ class Facture_products_ids(Resource):
 class Facture_products_id(Resource):
     @marshal_with(facture_element_resource_fields)
     def get(self, facture_id):
-        facture_element = Facture_element.query.filter_by(facture_id=facture_id).all()
-        return facture_element , 200   
+        ##facture_element = Facture_element.query.filter_by(facture_id=facture_id).all()
+        facture_element = db.session.query(Facture_element.id,Facture_element.facture_id, Product.NAME, Product.CODE,Product_family.family,
+                                          Facture_element.PRICE_BUY,Facture_element.montant,Facture_element.quantite ). \
+            filter(facture_id==Facture_element.facture_id) .\
+            join(Product,Product.id==Facture_element.product_id).\
+            join(Product_family,Product.ID_FAMILY==Product_family.id)
+           ## products = Product.query.all()
+           ## return products.all()
+        
+        return facture_element.all() , 200   
