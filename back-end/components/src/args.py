@@ -5,6 +5,16 @@ from flask_restful import  reqparse
 
 
 ################################################################################################
+product_post_args = reqparse.RequestParser()
+product_post_args.add_argument('NAME', type=str, required=True, help='Nom manquant')
+product_post_args.add_argument('CODE', type=str, required=True, help='Code manquant')
+product_post_args.add_argument('family', type=str, required=True, help='famille manquant')
+
+
+
+
+
+
 
 product_put_args = reqparse.RequestParser()
 product_put_args.add_argument('NAME', type=str, required=True, help='Nom manquant')

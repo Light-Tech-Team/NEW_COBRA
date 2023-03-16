@@ -41,6 +41,15 @@ class Facture_element(db.Model):
     facture = db.relationship('Facture', backref=db.backref('facture_element', lazy='select'))
     product = db.relationship('Product', backref=db.backref('facture_element', lazy='select'))
     
+    facture_id = db.Column(db.Integer, db.ForeignKey('facture.id'))
+    def __init__(self, id, facture_id,product_id,PRICE_BUY,quantite,montant):
+        self.id = id
+        self.facture_id = facture_id
+        self.product_id = product_id
+        self.PRICE_BUY = PRICE_BUY
+        self.quantite = quantite
+        self.montant = montant
+        
     def __repr__(self):
         return '<Facture_product %r>' % self.id
 
@@ -51,6 +60,10 @@ class Product_family(db.Model):
     family = db.Column(db.String(255))
     #description = db.Column(db.String(255))
     products = db.relationship('Product', backref=db.backref('prouct_family', lazy='select'))
+    
+    def __init__(self, family):
+        self.family = family
+    
     def __repr__(self):
         return '<Prouct_family %r>' % self.id
 
@@ -64,6 +77,10 @@ class Product(db.Model):
     #image = db.Column(db.String(255))
     ID_FAMILY = db.Column(db.Integer, db.ForeignKey('product_family.id'))
 
-
+    def __init__(self, NAME,CODE,ID_FAMILY):
+            self.NAME = NAME
+            self.CODE = CODE
+            self.ID_FAMILY = ID_FAMILY
+         
     def __repr__(self):
         return '<Product %r>' % self.id

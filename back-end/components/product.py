@@ -1,9 +1,8 @@
 from flask_restful import Resource, marshal_with, abort
-from .src.args import product_put_args, product_update_args,product_family_update_args
+from .src.args import product_put_args, product_update_args,product_family_update_args,product_post_args
 from .src.fields import product_resource_fields,product_resource_fields,product_family_resource_fields
 from extensions import db
 from models import Product, Product_family
-
 
 
 
@@ -53,11 +52,20 @@ class ProductResource(Resource):
 
     @marshal_with(product_resource_fields)
     def post(self):
-        pass
+        args = product_post_args.parse_args()
+        family = Product_family.query.filter_by(family=args['family']).first()
+        if family:
+            response = {'message': 'family already exists!'}
+        else:    
+            new_family= Product_family(args['family'])
+            db.session.add(new_family)
+           
+            response = {'message': 'family created!'}
+        family = Product_family.query.filter_by(family=args['family']).first()  
+        product = Product(args['NAME'],args['CODE'],family.id)
+        db.session.add(product)
+        db.session.commit()
+        return response
 
-
-        
-
-
-
+       
            
