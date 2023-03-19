@@ -6,26 +6,33 @@
       xmlns:local="clr-namespace:NEW_COBRA.CONTROLLERS"
       mc:Ignorable="d"  
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
-    <Grid  Grid.Column="1"  Grid.Row="1" Height="600" Width="769" Background="White">
-        <Grid x:Name="HeadPage"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="769" Height="155" Background="#F6F7F8" >
+    <Grid   Height="Auto" Width="769" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="HeadPage" Grid.Row="0"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="769" Height="155" Background="#F6F7F8" >
             <Label Content="Facture" Background="{x:Null}" Foreground="#FF5789F5" FontSize="30" 
                        HorizontalAlignment="Left" Height="65" Margin="10,50,0,0" VerticalAlignment="Top"
                        Width="245"/>
-            <ListView Background="#FF016DB2"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" 
-                          Margin="524,50,0,0" Height="65" SelectionChanged="ListView_SelectionChanged" >
-                <StackPanel  Background="#FF016DB2" Orientation="Horizontal" Width="210" Height="41" 
+            <Button Background="#FF016DB2"  HorizontalAlignment="Left" VerticalAlignment="Top"
+                          Margin="524,50,0,0"  Click="Add_facture" Height="auto"  >
+           
+                    <StackPanel  Background="#FF016DB2" Orientation="Horizontal" Width="210" Height="auto" 
                                  HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <materialDesign:PackIcon Kind="PaperAdd" Width="70" Height="40" />
+                    <materialDesign:PackIcon Kind="PaperAdd" Width="35" Height="25"/>
                     <TextBlock Text="Add Facture" TextAlignment="Center" FontSize="20" 
                                    VerticalAlignment="Center" Margin="0,2" Width="140" />
                 </StackPanel>
-            </ListView>
+                 
+            </Button>
         </Grid>
-        <Grid x:Name="BodyPage" Height="446" Width="769" VerticalAlignment="Bottom" HorizontalAlignment="Left"   >
-        
-                <DataGrid x:Name="Dtgd" ColumnWidth="3*"  Foreground="#DD000000"  BorderBrush="#FFF7F7F7" 
+        <Grid x:Name="BodyPage" Grid.Row="1" Width="769"  HorizontalAlignment="Left"   >
+
+            <DataGrid x:Name="Dtgd" ItemsSource="{Binding Path=ListBuyInvoice}" IsReadOnly="True" ColumnWidth="3*"  Foreground="#DD000000"  BorderBrush="#FFF7F7F7" 
                           HorizontalContentAlignment="Center" Background="#FF016DB2" RowBackground="#F6F7F8" Visibility="Visible">
-                <DataGrid.Columns>
+               <DataGrid.Columns>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

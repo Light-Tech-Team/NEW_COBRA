@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FireSharp.Config;
 using FireSharp;
-using NEW_COBRA.SERVICE;
+
 
 namespace NEW_COBRA
 {
@@ -32,7 +32,7 @@ namespace NEW_COBRA
 
         };
         FirebaseClient firebaseClient;
-        private ProductService productService;
+        
         private List<itemHome> listHome;
         public MainWindow()
         {

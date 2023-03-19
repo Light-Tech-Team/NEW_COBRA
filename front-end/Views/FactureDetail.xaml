@@ -1,4 +1,4 @@
-﻿<Window x:Class="NEW_COBRA.CONTROLLERS.FactureDetail"
+﻿<UserControl x:Class="NEW_COBRA.CONTROLLERS.FactureDetail"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,11 +6,6 @@
         xmlns:local="clr-namespace:NEW_COBRA.CONTROLLERS"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="FactureDetail"
-        Height="750" 
-        Width="816"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
        
         >
     <!--Icon="C:\Users\Basbas\Desktop\Nouveau dossier\NEW_COBRA\front-end/cobra (3).ico"-->
@@ -71,4 +66,4 @@
 
 
     </Grid>
-</Window>
+</UserControl>

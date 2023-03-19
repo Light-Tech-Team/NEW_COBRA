@@ -19,27 +19,23 @@ namespace NEW_COBRA
     /// <summary>
     /// Interaction logic for addfamily.xaml
     /// </summary>
-    public partial class Addfamily : Window
+    public partial class Addfamily : UserControl
     {
-        private int id_family;
-        private FirebaseClient firebaseClient;
+        
+        
 
-        public Addfamily(int id_family, FirebaseClient firebaseClient)
+        public Addfamily()
         {
-            this.id_family = id_family;
-            this.firebaseClient = firebaseClient;
+          
             InitializeComponent();
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            addfml.Close();
-        }
+     
 
         private void AddFamily(object sender, RoutedEventArgs e)
         {
-            if (stt.Children.Add(new AddProduct((byte)id_family, firebaseClient)) != 0)
+            if (stt.Children.Add(new AddProduct()) != 0)
             {
                 stt.Children.Clear();
             }

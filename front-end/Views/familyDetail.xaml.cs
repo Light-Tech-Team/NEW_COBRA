@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NEW_COBRA.DATA;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FireSharp;
 using NEW_COBRA.ENTITY;
-using NEW_COBRA.SERVICE;
 
 namespace NEW_COBRA.CONTROLLERS
 {
@@ -25,32 +25,33 @@ namespace NEW_COBRA.CONTROLLERS
     {
         public List<ProductList> ListProduct { get; set; }
         int Id_family;
-        FirebaseClient firebaseClient;
         private string[] nameProduct;
         private readonly string nbtn;
-        private readonly FamilyService familyService = new FamilyService();
+        
 
 
-        public FamilyDetail(int Id_family, FirebaseClient firebaseClient, List<Product> prot)
+        public FamilyDetail(int Id_family)
         {
             this.Id_family = Id_family;
-            this.firebaseClient = firebaseClient;
             ListProduct = new List<ProductList>();
-            this.nbtn = familyService.getAllFamily(firebaseClient).ElementAt(Id_family);
+         //   this.nbtn = familyData.getAllFamily(firebaseClient).Result.ElementAt(Id_family);
             InitializeComponent();
-            mop(prot);
+           // mop(prot);
             Lip();
             this.DataContext = this;
+
+          
+
         }
-        private void mop(List<Product> proto)
+    /*    private void mop(List<Product> proto)
         {
             nameProduct = new string[proto.Count];
             for (int i = proto.Count - 1; i >= 0; i--)
             {
-                nameProduct[i] = proto.ElementAt(i).NAME;
+               // nameProduct[i] = proto.ElementAt(i).NAME;
                 Console.WriteLine(nameProduct[i]);
             }
-        }
+        }*/
         private void Lip()
         {
             ryra.Content = this.nbtn;
@@ -69,7 +70,7 @@ namespace NEW_COBRA.CONTROLLERS
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
-            if (add_product.Children.Add(new AddProduct((byte)Id_family, firebaseClient)) != 0)
+            if (add_product.Children.Add(new AddProduct( )) != 0)
             {
                 add_product.Children.Clear();
             }
